@@ -54,13 +54,13 @@ public class Cursor : MonoBehaviour
             {
                 selectedTarget = onObject;
                 targetSelected = true;
-                selectedUI.UpdateName(selectedTarget.unitName);
+                selectedUI.UpdateTo(selectedTarget);
             }
             else
             {
                 selectedTarget = null;
                 targetSelected = false;
-                selectedUI.UpdateName("None");
+                selectedUI.UpdateToNone();
             }
         }
 
