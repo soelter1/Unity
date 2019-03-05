@@ -11,6 +11,7 @@ public class MainMenuBehaviour : MonoBehaviour
     public Button exitButton;
 
     public ExitPrompt exitPrompt;
+    public ExitPrompt DLC;
     public bool promptActive = false;
 
     public void startButtonClick()
@@ -25,6 +26,8 @@ public class MainMenuBehaviour : MonoBehaviour
         {
             if (!promptActive)
             {
+            DLC.gameObject.SetActive(true);
+            promptActive = true;
             }
     }
 
