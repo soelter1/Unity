@@ -6,7 +6,7 @@ public class CamTarget : MonoBehaviour
 {
 
     public Transform target;
-    public Vector3 offset;
+    public Vector3 offset = new Vector3(0, 75, -20);
     public bool Sight = false;
 
     // Update is called once per frame
@@ -15,4 +15,5 @@ public class CamTarget : MonoBehaviour
         transform.position = target.position + offset;
         if (Sight) { transform.rotation = target.rotation; }
     }
+
 }
