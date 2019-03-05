@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\SelectedUI.cs" />
     <Compile Include="Assets\Scripts\StatsPanel.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
+<<<<<<< HEAD
       <HintPath>E:/GitHub/Unity/GBTBSP/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
@@ -84,6 +85,21 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>E:/GitHub/Unity/GBTBSP/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+=======
+      <HintPath>C:/Users/Izaya/Studium/(05) WiSe18/Grafikprogrammierung/Unity/Unity/GBTBSP/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>C:/Users/Izaya/Studium/(05) WiSe18/Grafikprogrammierung/Unity/Unity/GBTBSP/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>C:/Users/Izaya/Studium/(05) WiSe18/Grafikprogrammierung/Unity/Unity/GBTBSP/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/Izaya/Studium/(05) WiSe18/Grafikprogrammierung/Unity/Unity/GBTBSP/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>C:/Users/Izaya/Studium/(05) WiSe18/Grafikprogrammierung/Unity/Unity/GBTBSP/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+>>>>>>> 9187e599d1c939810b2055551548ab5fc09a2093
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -290,6 +306,7 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
+<<<<<<< HEAD
       <HintPath>E:/GitHub/Unity/GBTBSP/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
@@ -297,6 +314,15 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>E:/GitHub/Unity/GBTBSP/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+=======
+      <HintPath>C:/Users/Izaya/Studium/(05) WiSe18/Grafikprogrammierung/Unity/Unity/GBTBSP/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.StandardEvents">
+      <HintPath>C:/Users/Izaya/Studium/(05) WiSe18/Grafikprogrammierung/Unity/Unity/GBTBSP/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Tracker">
+      <HintPath>C:/Users/Izaya/Studium/(05) WiSe18/Grafikprogrammierung/Unity/Unity/GBTBSP/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+>>>>>>> 9187e599d1c939810b2055551548ab5fc09a2093
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
