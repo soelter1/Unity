@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveAbleObject : MonoBehaviour
 {
-    public string unitName;
+    public string unitName = "";
     public Cursor cursor;
     public int movementRange = 0;
     public int atk = 0;
