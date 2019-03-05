@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using System;
 
 public class GridBehaviourScript : MonoBehaviour
 {
-
     public FloorBehaviourScript[] floors;
 
     MeshRenderer rend;
@@ -15,35 +13,41 @@ public class GridBehaviourScript : MonoBehaviour
     public Material Ground2;
     public Material Range;
 
-    public void showMovementRange(MoveAbleObject obj)
+    int counter = 0;
+
+    public ArrayList MakeMovementRangeArray(MoveAbleObject obj)
     {
-        Debug.Log(obj.transform.position);
+        int movementRange = obj.movementRange;
+
+        int movementRangeArraySize = ArraySize(movementRange);
+
+        Debug.Log("mras" + movementRangeArraySize);
+
+        Vector3[] movementRangeArray = new Vector3[movementRangeArraySize];
+        ArrayList movementRangeArrayList = new ArrayList();
+
+        Debug.Log("mral" + movementRangeArray.Length);
 
         floors = GetComponentsInChildren<FloorBehaviourScript>();   //Array mit floors
 
-        Debug.Log(floors.Length);
-
-        Vector3 objPos = obj.transform.position;
-
-        int movementRange = obj.movementRange;
-
-        int primeRange = movementRange * 2 + 1;
-
-        Debug.Log("movementRange: " + movementRange + ", primeRange: " + primeRange);
-
-        Vector3[] reachable = MakeRangeArray(objPos, movementRange, primeRange);
+        Vector3 objPos = obj.transform.position;        //Curserd Object Position
 
         foreach (FloorBehaviourScript i in floors)
         {
+            Vector3 floorPos = i.transform.position;
 
-            if (Array.Exists(reachable, element => element.Equals(i.transform.position)))
+            float manhatten = Math.Abs(objPos.x - floorPos.x) + Math.Abs(objPos.z - floorPos.z);
+
+            if (manhatten <= movementRange * 10 && counter < movementRangeArraySize)
             {
-                Debug.Log(i + "is reachable!");
-                rend = i.GetComponent<MeshRenderer>();
-
-                rend.material = Range;
+                movementRangeArrayList.Add(floorPos);
+                //movementRangeArray[counter++] = floorPos;
+                //Debug.Log("florPos from mmra" + floorPos);
             }
         }
+
+        //return movementRangeArray;
+        return movementRangeArrayList;
     }
 
     //calculates the ArraySize
@@ -51,54 +55,92 @@ public class GridBehaviourScript : MonoBehaviour
     {
         int arraySize = 0;
 
-        for(int i = 1; i <= movementRange; i++)
+        for (int i = 1; i <= movementRange; i++)
         {
-            arraySize += i;
-            Debug.Log("arraySize: " + arraySize);
+            arraySize = arraySize + i;
         }
-        return arraySize * 4 + 1;
+        return (arraySize * 4 + 1);
     }
 
-    Vector3[] MakeRangeArray(Vector3 objPos, int movementRange, int primeRange)
+    public void ShowMovementRangeDirectly(MoveAbleObject obj)
     {
-        int arraySize = ArraySize(movementRange);
+        int movementRange = obj.movementRange;
 
-        Vector3[] rangeArray = new Vector3[arraySize];
+        int movementRangeArraySize = ArraySize(movementRange);
 
-        Debug.Log("rangeArray Length: " + rangeArray.Length);
+        Vector3[] movementRangeArray = new Vector3[movementRangeArraySize];
 
-        int diagonals = 12;
+        floors = GetComponentsInChildren<FloorBehaviourScript>();   //Array mit floors
 
-        Debug.Log("diagonals: " + diagonals);
+        Vector3 objPos = obj.transform.position;        //Curserd Object Position
 
-        for (int i = 0; i < movementRange; i++)
+        foreach (FloorBehaviourScript i in floors)
         {
+            Vector3 floorPos = i.transform.position;
 
-            //TODO: Manhatten distance
-
-            rangeArray[0] = new Vector3(objPos.x, 0, objPos.z);
-            rangeArray[1+i*4] = new Vector3(objPos.x, 0, objPos.z + ((i+1) * 10));
-            rangeArray[2+i*4] = new Vector3(objPos.x, 0, objPos.z - ((i + 1) * 10));
-            rangeArray[3+i*4] = new Vector3(objPos.x + ((i + 1) * 10), 0, objPos.z);
-            rangeArray[4+i*4] = new Vector3(objPos.x - ((i + 1) * 10), 0, objPos.z);
-
+            float manhatten = Math.Abs(objPos.x - floorPos.x) + Math.Abs(objPos.z - floorPos.z);
             
-
-            for (int d = diagonals; d > 0; d--)
+            if (manhatten <= movementRange * 10 && counter < movementRangeArraySize)
             {
-                rangeArray[arraySize - d] = new Vector3(objPos.x + (i * 10), 0, objPos.z + (i * 10));
-                rangeArray[arraySize - d] = new Vector3(objPos.x - (i * 10), 0, objPos.z - (i * 10));
-                rangeArray[arraySize - d] = new Vector3(objPos.x - (i * 10), 0, objPos.z + (i * 10));
-                rangeArray[arraySize - d] = new Vector3(objPos.x + (i * 10), 0, objPos.z - (i * 10));
+                rend = i.GetComponent<MeshRenderer>();
 
+                rend.material = Range;
+
+                Debug.Log(counter);
+
+                counter++;
             }
+        }
+    }
 
-   
-            
+    public void ShowMovementRange(MoveAbleObject obj, bool reverse)
+    {
+        int movementRange = obj.movementRange;
 
-            Debug.Log("u do shit?");
+        int movementRangeArraySize = ArraySize(movementRange);
+
+        //Vector3[] movementRangeArray = MakeMovementRangeArray(obj);
+
+        ArrayList movementRangeArrayList = MakeMovementRangeArray(obj);
+
+        foreach (Vector3 v in movementRangeArrayList)
+        {
+            Debug.Log(v);
         }
 
-        return rangeArray;
+        //Debug.Log(movementRangeArray.Length);
+
+        foreach (FloorBehaviourScript i in floors)
+        {
+            Vector3 floorPos = i.transform.position;
+
+            /*
+
+            if (Array.Exists(movementRangeArray, element => element == new Vector3(floorPos.x, 0, floorPos.z)))
+            {
+                //Debug.Log("Floor x = " + floorPos.x + ", z = " + floorPos.z + " is reachable! " + movementRangeArray.Length);
+                rend = i.GetComponent<MeshRenderer>();
+
+                rend.material = Range;
+            }
+
+    */
+            rend = i.GetComponent<MeshRenderer>();
+
+            Material memory = rend.material;
+
+            if (movementRangeArrayList.Contains(new Vector3(floorPos.x, 0, floorPos.z)))
+            {
+
+                if (!reverse) {
+                    rend.material = Range;
+                }
+
+                if (reverse)
+                {
+                    rend.material = memory;
+                }
+            }
+        }
     }
 }

@@ -52,9 +52,15 @@ public class Cursor : MonoBehaviour
         {
             if (onTarget)
             {
+
                 selectedTarget = onObject;
                 targetSelected = true;
                 selectedUI.UpdateTo(selectedTarget);
+
+                //grid.MakeMovementRangeArray(selectedTarget);
+                grid.ShowMovementRange(selectedTarget, false);
+                //grid.ShowMovementRangeDirectly(selectedTarget);
+
             }
             else
             {
@@ -66,7 +72,9 @@ public class Cursor : MonoBehaviour
 
         if (Input.GetKeyDown("l"))
         {
-            grid.showMovementRange(selectedTarget);
+            //grid.MakeMovementRangeArray(selectedTarget);
+            grid.ShowMovementRange(selectedTarget, false);
+            //grid.ShowMovementRangeDirectly(selectedTarget);
         }
     }
 
