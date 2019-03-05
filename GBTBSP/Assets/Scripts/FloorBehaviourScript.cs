@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class FloorBehaviourScript : MonoBehaviour
 {
-    public Material material;
+    
 }

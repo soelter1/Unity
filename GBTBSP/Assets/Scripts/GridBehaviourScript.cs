@@ -9,18 +9,17 @@ public class GridBehaviourScript : MonoBehaviour
 
     public FloorBehaviourScript[] floors;
 
-    Renderer rend;
+    MeshRenderer rend;
 
-    Shader Ground1;
-    Shader Ground2;
-    Shader Range;
+    public Material Ground1;
+    public Material Ground2;
+    public Material Range;
 
     public void showMovementRange(MoveAbleObject obj)
     {
-
         Debug.Log(obj.transform.position);
 
-        floors = GetComponentsInChildren<FloorBehaviourScript>();
+        floors = GetComponentsInChildren<FloorBehaviourScript>();   //Array mit floors
 
         Debug.Log(floors.Length);
 
@@ -30,33 +29,75 @@ public class GridBehaviourScript : MonoBehaviour
 
         int primeRange = movementRange * 2 + 1;
 
-        Debug.Log("movementRange: " + movementRange + "primeRange: " + primeRange);
+        Debug.Log("movementRange: " + movementRange + ", primeRange: " + primeRange);
 
-        Vector3[] rangeArray = new Vector3[primeRange * primeRange];
-
-        Debug.Log("rangeArray Length: " + rangeArray.Length);
-
-        Vector3[] reachable = makeRangeArray(rangeArray, objPos, movementRange);
+        Vector3[] reachable = MakeRangeArray(objPos, movementRange, primeRange);
 
         foreach (FloorBehaviourScript i in floors)
         {
-            bool a = Array.Exists<Vector3>(reachable, Vector3 => Vector3 == i.transform.position); //new Vector3(obj.transform.position.x, 0, obj.transform.position.z)
 
-            if (a)
+            if (Array.Exists(reachable, element => element.Equals(i.transform.position)))
             {
-                Debug.Log(i + "is reachable");
+                Debug.Log(i + "is reachable!");
                 rend = i.GetComponent<MeshRenderer>();
 
-                rend.material.shader = Range;
+                rend.material = Range;
             }
         }
     }
 
-    Vector3[] makeRangeArray(Vector3[] rangeArray, Vector3 objPos, int movementRange)
+    //calculates the ArraySize
+    int ArraySize(int movementRange)
     {
-        //rangeArray[0] = objPos;
+        int arraySize = 0;
 
-        rangeArray[0] = new Vector3(objPos.x, 0, objPos.z + (movementRange * 10));
+        for(int i = 1; i <= movementRange; i++)
+        {
+            arraySize += i;
+            Debug.Log("arraySize: " + arraySize);
+        }
+        return arraySize * 4 + 1;
+    }
+
+    Vector3[] MakeRangeArray(Vector3 objPos, int movementRange, int primeRange)
+    {
+        int arraySize = ArraySize(movementRange);
+
+        Vector3[] rangeArray = new Vector3[arraySize];
+
+        Debug.Log("rangeArray Length: " + rangeArray.Length);
+
+        int diagonals = 12;
+
+        Debug.Log("diagonals: " + diagonals);
+
+        for (int i = 0; i < movementRange; i++)
+        {
+
+            //TODO: Manhatten distance
+
+            rangeArray[0] = new Vector3(objPos.x, 0, objPos.z);
+            rangeArray[1+i*4] = new Vector3(objPos.x, 0, objPos.z + ((i+1) * 10));
+            rangeArray[2+i*4] = new Vector3(objPos.x, 0, objPos.z - ((i + 1) * 10));
+            rangeArray[3+i*4] = new Vector3(objPos.x + ((i + 1) * 10), 0, objPos.z);
+            rangeArray[4+i*4] = new Vector3(objPos.x - ((i + 1) * 10), 0, objPos.z);
+
+            
+
+            for (int d = diagonals; d > 0; d--)
+            {
+                rangeArray[arraySize - d] = new Vector3(objPos.x + (i * 10), 0, objPos.z + (i * 10));
+                rangeArray[arraySize - d] = new Vector3(objPos.x - (i * 10), 0, objPos.z - (i * 10));
+                rangeArray[arraySize - d] = new Vector3(objPos.x - (i * 10), 0, objPos.z + (i * 10));
+                rangeArray[arraySize - d] = new Vector3(objPos.x + (i * 10), 0, objPos.z - (i * 10));
+
+            }
+
+   
+            
+
+            Debug.Log("u do shit?");
+        }
 
         return rangeArray;
     }
