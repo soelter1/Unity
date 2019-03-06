@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class MoveAbleObject : MonoBehaviour
 {
     public string unitName = "";
@@ -21,21 +22,42 @@ public class MoveAbleObject : MonoBehaviour
         }
     }
 
+    private bool posInRange(Vector3 target, int range)
+    {
+        //Debug.Log("Im open");
+        Vector2 tempVec = new Vector2(transform.position.x - target.x,
+                                        transform.position.z - target.z);
+        if ((tempVec.x < 0 && tempVec.y > 0) || (tempVec.x > 0 && tempVec.y < 0))
+        {
+            //Debug.Log("Vorzeichen Palooza");
+            tempVec = new Vector2((-1 * tempVec.x), tempVec.y);
+        }
+        int isIt = (int)System.Math.Ceiling(tempVec.x + tempVec.y);
+        //Debug.Log("isIT: " + isIt);
+        return !(isIt < (-10 * range) || isIt > (10 * range));
+    }
+
     Vector3 targetPos;
     bool moving = false;
     public BoxCollider boxcol;
 
     public void Move(float x, float z)
     {
-        targetPos = new Vector3(x, transform.position.y, z);
-        float t = Mathf.MoveTowards(transform.position.x, x, movementRange);
-        moving = true;
-        boxcol.isTrigger = true;
+        if (posInRange(new Vector3(x, 0, z), movementRange))
+        {
+            targetPos = new Vector3(x, transform.position.y, z);
+            float t = Mathf.MoveTowards(transform.position.x, x, movementRange);
+            moving = true;
+            boxcol.isTrigger = true;
+        }
     }
 
     public void Attack(MoveAbleObject target)
     {
-        Debug.Log("pewpewpew");
+        if (posInRange(target.transform.position, atk))
+        {
+            Debug.Log("pewpewpew");
+        }
     }
 
     void Update()

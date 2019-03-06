@@ -143,9 +143,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: 
   cursor: {fileID: 0}
-  movementRange: 0
-  atk: 0
-  hp: 1
+  movementRange: 2
+  atk: 2
+  hp: 5
   player: 0
   boxcol: {fileID: 5044675778395460556}
 --- !u!65 &5044675778395460556

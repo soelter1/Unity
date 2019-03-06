@@ -41,6 +41,14 @@ public class Cursor : MonoBehaviour
         else return false;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "SelectedFloor")
+        {
+            selectedCollision = true;
+            //Debug.Log("I collide");
+        }
+    }
     private void Update()
     {
         if (Input.GetKeyDown("w") && !(transform.position.z == (gridsizeZ * 10)))
@@ -81,6 +89,8 @@ public class Cursor : MonoBehaviour
             else
             {
                 Debug.Log(transform.position + " is not reachable.");
+                selectedTarget.Move(transform.position.x, transform.position.z);
+                selectedCollision = !selectedCollision;
             }
         }
         if (Input.GetKeyDown("f"))
@@ -98,6 +108,11 @@ public class Cursor : MonoBehaviour
                 disselectTarget();
             }
         }
+        if (Input.GetKeyDown("e") && onTarget && (onObject.player!=selectedTarget.player) )
+        {
+            selectedTarget.Attack(onObject);
+        }
+
     }
 
 }
