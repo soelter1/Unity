@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Cursor
   - Floor
-  - SelectedFloor
   layers:
   - Default
   - TransparentFX

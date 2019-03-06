@@ -4,9 +4,9 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - terrain: {instanceID: 0}
-  - selectedFloor: {fileID: 2823451894649408035, guid: 67f888d463792024295c398cab1be3be,
-      type: 3}
+  - Ground1: {fileID: 2100000, guid: 8855fd62ec2e8e349a89c01469e174a8, type: 2}
+  - Ground2: {fileID: 2100000, guid: f51dc23b82192284fbad1f018a04866d, type: 2}
+  - Range: {fileID: 2100000, guid: 67d453c3be47c414c9165c72313403a8, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

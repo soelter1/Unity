@@ -1,0 +1,54 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MainCamScript : MonoBehaviour
+{
+    public GameState gameState;
+    public Transform grid;
+    public int posCount = 1;
+    public Vector3 p1Pkt1;
+    public Vector3 p1Rot1;
+    public Vector3 p1Pkt2;
+    public Vector3 p1Rot2;
+    public Vector3 p2Pkt1;
+    public Vector3 p2Rot1;
+    public Vector3 p2Pkt2;
+    public Vector3 p2Rot2;
+
+
+    private void Update()
+    {
+        if(Input.GetKeyUp("c")){
+            if (posCount == 1)
+            { 
+                posCount = 2;
+            }
+            else if (posCount == 2)
+            {
+                posCount = 1;
+            }
+        }
+
+        if (posCount == 1 && gameState.playerTurn == 1)
+        {
+            transform.position = p1Pkt1;
+            transform.rotation = Quaternion.Euler(p1Rot1);
+        }
+        if (posCount == 2 && gameState.playerTurn == 1)
+        {
+            transform.position = p1Pkt2;
+            transform.rotation = Quaternion.Euler(p1Rot2);
+        }
+        if (posCount == 1 && gameState.playerTurn == 2)
+        {
+            transform.position = p2Pkt1;
+            transform.rotation = Quaternion.Euler(p2Rot1);
+        }
+        if (posCount == 2 && gameState.playerTurn == 2)
+        {
+            transform.position = p2Pkt2;
+            transform.rotation = Quaternion.Euler(p2Rot2);
+        }
+    }
+}

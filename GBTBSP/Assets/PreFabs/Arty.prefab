@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 4779353107118475612}
   - component: {fileID: 4430331531600592991}
   - component: {fileID: 4014139525540690857}
+  - component: {fileID: 2514698426973049241}
   m_Layer: 0
   m_Name: Arty
   m_TagString: Untagged
@@ -247,7 +248,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &4014139525540690857
 MonoBehaviour:
@@ -266,6 +267,27 @@ MonoBehaviour:
   movementRange: 1
   atk: 4
   hp: 2
+  player: 0
+  boxcol: {fileID: 4779353107118475612}
+--- !u!95 &2514698426973049241
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661159571408712171}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3364406616174904910
 GameObject:
   m_ObjectHideFlags: 0

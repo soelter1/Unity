@@ -146,6 +146,8 @@ MonoBehaviour:
   movementRange: 0
   atk: 0
   hp: 1
+  player: 0
+  boxcol: {fileID: 5044675778395460556}
 --- !u!65 &5044675778395460556
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -173,7 +175,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!1 &4607414764722047046
 GameObject:

@@ -5536,8 +5536,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c677af3cf7bad4aabfcb70719611dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFloor: {fileID: 2823451894649408035, guid: 67f888d463792024295c398cab1be3be,
-    type: 3}
+  floors: []
+  Ground1: {fileID: 0}
+  Ground2: {fileID: 0}
+  Range: {fileID: 0}
 --- !u!1 &906742157
 GameObject:
   m_ObjectHideFlags: 0
@@ -10274,7 +10276,7 @@ PrefabInstance:
     - target: {fileID: 244968565236359723, guid: 4a182429e7d2803449a98197ad6243ff,
         type: 3}
       propertyPath: m_Constraints
-      value: 116
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a182429e7d2803449a98197ad6243ff, type: 3}
@@ -13856,7 +13858,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991307979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50, y: 0, z: 50}
+  m_LocalPosition: {x: 50, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1480479795}
@@ -15480,11 +15482,6 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 1991307980}
-    - target: {fileID: 1048726533076870062, guid: 5f38cdcfb1e08a443ad159c7a226b7c6,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f38cdcfb1e08a443ad159c7a226b7c6, type: 3}
 --- !u!1001 &6092929899833489309
@@ -15512,7 +15509,7 @@ PrefabInstance:
     - target: {fileID: 6092929900499526920, guid: 57c191ae4c092234994e99b8d67d494d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6092929900499526920, guid: 57c191ae4c092234994e99b8d67d494d,
         type: 3}
@@ -15562,12 +15559,7 @@ PrefabInstance:
     - target: {fileID: 6092929900499526924, guid: 57c191ae4c092234994e99b8d67d494d,
         type: 3}
       propertyPath: movementRange
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6092929900499526925, guid: 57c191ae4c092234994e99b8d67d494d,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 116
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57c191ae4c092234994e99b8d67d494d, type: 3}
