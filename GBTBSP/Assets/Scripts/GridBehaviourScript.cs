@@ -51,7 +51,7 @@ public class GridBehaviourScript : MonoBehaviour
                 if (state)
                 {
                     Instantiate(selectedFloor, new Vector3(floorPos.x, 1.0f, floorPos.z), Quaternion.identity);     //generates selectedFloor Prefab
-                    Debug.Log(floorPos + " is reachable");
+                    //Debug.Log(floorPos + " is reachable");
                     movementRangeArray[counter] = floorPos;         //adds reachable Position to an array
                     counter++;
                 }
@@ -64,7 +64,7 @@ public class GridBehaviourScript : MonoBehaviour
                     {
                         Destroy(go);            //Destroys them all
 
-                        Debug.Log(go.transform.position + " not reachable!");
+                        //Debug.Log(go.transform.position + " not reachable!");
                     }
                 }
             }
@@ -72,7 +72,7 @@ public class GridBehaviourScript : MonoBehaviour
 
         foreach (Vector3 v in movementRangeArray)
         {
-            Debug.Log(v + " is reachable Array");
+            //Debug.Log(v + " is reachable Array");
         }
 
 

@@ -48,7 +48,7 @@ public class Cursor : MonoBehaviour
         if (other.tag == "SelectedFloor")
         {
             selectedCollision = true;
-            Debug.Log("I collide");
+            //Debug.Log("I collide");
         }
     }
 
@@ -83,8 +83,8 @@ public class Cursor : MonoBehaviour
 
             if (selectedCollision)       //selectedFloor Prefab collides with Cursor
             {
-                selectedTarget.transform.position = new Vector3(transform.position.x, selectedTarget.transform.position.y, transform.position.z);
-
+                //selectedTarget.transform.position = new Vector3(transform.position.x, selectedTarget.transform.position.y, transform.position.z);
+                selectedTarget.Move(transform.position.x, transform.position.z);
                 selectedCollision = !selectedCollision;
             }
         }
@@ -92,14 +92,14 @@ public class Cursor : MonoBehaviour
         {
             if (onTarget)
             {
-                Debug.Log("On Target");
+                //Debug.Log("On Target");
 
                 selectTarget();
                 grid.ShowMovementRange(selectedTarget, true);
             }
             else
             {
-                Debug.Log("Not on Target");
+                //Debug.Log("Not on Target");
 
                 selectTarget();
                 grid.ShowMovementRange(selectedTarget, false);
@@ -107,6 +107,11 @@ public class Cursor : MonoBehaviour
                 disselectTarget();
             }
         }
+        if (Input.GetKeyDown("e") && onTarget && (onObject.player!=selectedTarget.player) )
+        {
+            selectedTarget.Attack(onObject);
+        }
+
     }
 
 }
