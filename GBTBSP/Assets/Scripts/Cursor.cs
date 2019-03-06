@@ -20,11 +20,11 @@ public class Cursor : MonoBehaviour
 
     private void OnGUI()
     {
-        if(Input.GetKeyDown("w") && !(transform.position.z == (gridsizeZ*10)))
+        if (Input.GetKeyDown("w") && !(transform.position.z == (gridsizeZ * 10)))
         {
             onTarget = false;
             blocked = false;
-            transform.position = (transform.position+(new Vector3(0, 0, 2.5f)));
+            transform.position = (transform.position + (new Vector3(0, 0, 2.5f)));
         }
         if (Input.GetKeyDown("s") && !(transform.position.z == 0f))
         {
@@ -36,18 +36,26 @@ public class Cursor : MonoBehaviour
         {
             onTarget = false;
             blocked = false;
-            transform.position = (transform.position + (new Vector3(-2.5f,0,0)));
+            transform.position = (transform.position + (new Vector3(-2.5f, 0, 0)));
         }
-        if (Input.GetKeyDown("d") && !(transform.position.x == (gridsizeX*10f)))
+        if (Input.GetKeyDown("d") && !(transform.position.x == (gridsizeX * 10f)))
         {
             onTarget = false;
             blocked = false;
             transform.position = (transform.position + (new Vector3(2.5f, 0, 0)));
         }
-        if (Input.GetKeyDown("space") && targetSelected && !(blocked || onTarget))
+        if (Input.GetKeyDown("space") && targetSelected)
         {
-            selectedTarget.transform.position = new Vector3(transform.position.x, selectedTarget.transform.position.y, transform.position.z);
+            if (!(blocked || onTarget)) { 
+                //selectedTarget.transform.position = new Vector3(transform.position.x, selectedTarget.transform.position.y, transform.position.z);
+                selectedTarget.Move(transform.position.x, transform.position.z);
+            }
+            if(onTarget && selectedTarget.player != onObject.player)
+            {
+                selectedTarget.Attack(onObject);
+            }
         }
+
         if (Input.GetKeyDown("f"))
         {
             if (onTarget)
