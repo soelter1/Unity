@@ -5536,10 +5536,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c677af3cf7bad4aabfcb70719611dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floors: []
-  Ground1: {fileID: 0}
-  Ground2: {fileID: 0}
-  Range: {fileID: 0}
+  selectedFloor: {fileID: 2823451894649408035, guid: 4e6ce357f4ac3cc4fb27b1569fca4143,
+    type: 3}
+  movementRangeArray: []
 --- !u!1 &906742157
 GameObject:
   m_ObjectHideFlags: 0

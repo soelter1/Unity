@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Cursor : MonoBehaviour
 {
@@ -18,71 +19,93 @@ public class Cursor : MonoBehaviour
     public bool onTarget = false;
     public bool blocked = false;
 
-    private void OnGUI()
+    private bool selectedCollision = false;
+
+    private void selectTarget()
+    {
+        selectedTarget = onObject;
+        targetSelected = true;
+        selectedUI.UpdateTo(selectedTarget);
+    }
+
+    private void disselectTarget()
+    {
+        selectedTarget = null;
+        targetSelected = false;
+        selectedUI.UpdateToNone();
+    }
+
+    public bool isReachable(Vector3 destination)
+    {
+        Vector3[] reachable = grid.movementRangeArray;
+
+        if (Array.Exists<Vector3>(reachable, element => element == destination)) return true;
+        else return false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "SelectedFloor")
+        {
+            selectedCollision = true;
+            Debug.Log("I collide");
+        }
+    }
+
+    private void Update()
     {
         if (Input.GetKeyDown("w") && !(transform.position.z == (gridsizeZ * 10)))
         {
             onTarget = false;
             blocked = false;
-            transform.position = (transform.position + (new Vector3(0, 0, 2.5f)));
+            transform.position = (transform.position + (new Vector3(0, 0, 10f)));
         }
         if (Input.GetKeyDown("s") && !(transform.position.z == 0f))
         {
             onTarget = false;
             blocked = false;
-            transform.position = (transform.position + (new Vector3(0, 0, -2.5f)));
+            transform.position = (transform.position + (new Vector3(0, 0, -10f)));
         }
         if (Input.GetKeyDown("a") && !(transform.position.x == 0f))
         {
             onTarget = false;
             blocked = false;
-            transform.position = (transform.position + (new Vector3(-2.5f, 0, 0)));
+            transform.position = (transform.position + (new Vector3(-10f, 0, 0)));
         }
         if (Input.GetKeyDown("d") && !(transform.position.x == (gridsizeX * 10f)))
         {
             onTarget = false;
             blocked = false;
-            transform.position = (transform.position + (new Vector3(2.5f, 0, 0)));
+            transform.position = (transform.position + (new Vector3(10f, 0, 0)));
         }
-        if (Input.GetKeyDown("space") && targetSelected)
+        if (Input.GetKeyDown("space") && targetSelected && !(blocked || onTarget))
         {
-            if (!(blocked || onTarget)) { 
-                //selectedTarget.transform.position = new Vector3(transform.position.x, selectedTarget.transform.position.y, transform.position.z);
-                selectedTarget.Move(transform.position.x, transform.position.z);
-            }
-            if(onTarget && selectedTarget.player != onObject.player)
+
+            if (selectedCollision)       //selectedFloor Prefab collides with Cursor
             {
-                selectedTarget.Attack(onObject);
+                selectedTarget.transform.position = new Vector3(transform.position.x, selectedTarget.transform.position.y, transform.position.z);
+
+                selectedCollision = !selectedCollision;
             }
         }
-
         if (Input.GetKeyDown("f"))
         {
             if (onTarget)
             {
+                Debug.Log("On Target");
 
-                selectedTarget = onObject;
-                targetSelected = true;
-                selectedUI.UpdateTo(selectedTarget);
-
-                //grid.MakeMovementRangeArray(selectedTarget);
-                grid.ShowMovementRange(selectedTarget, false);
-                //grid.ShowMovementRangeDirectly(selectedTarget);
-
+                selectTarget();
+                grid.ShowMovementRange(selectedTarget, true);
             }
             else
             {
-                selectedTarget = null;
-                targetSelected = false;
-                selectedUI.UpdateToNone();
-            }
-        }
+                Debug.Log("Not on Target");
 
-        if (Input.GetKeyDown("l"))
-        {
-            //grid.MakeMovementRangeArray(selectedTarget);
-            grid.ShowMovementRange(selectedTarget, false);
-            //grid.ShowMovementRangeDirectly(selectedTarget);
+                selectTarget();
+                grid.ShowMovementRange(selectedTarget, false);
+
+                disselectTarget();
+            }
         }
     }
 
