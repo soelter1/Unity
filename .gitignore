@@ -1,0 +1,12 @@
+Library/metadata
+Library/
+Temp/
+Build/
+obj
+Assembly-CSharp.csproj
+SuperCableBoy.sln
+Levels/leveltester_backup
+.vs/SuperCableBoy/v14/.suo
+.vs/SuperCableBoy/v15
+obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+savegame.sav

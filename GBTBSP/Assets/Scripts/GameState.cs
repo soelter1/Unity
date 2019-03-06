@@ -26,7 +26,7 @@ public class GameState : MonoBehaviour
         }
         else
         {
-            new Vector3(0, cursor.gameObject.transform.position.y, 0);
+            cursor.gameObject.transform.position = new Vector3(0, cursor.gameObject.transform.position.y, 0);
             gameTurn += 1;
             playerTurn = 1;
         }
