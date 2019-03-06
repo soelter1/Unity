@@ -19,8 +19,6 @@ public class Cursor : MonoBehaviour
     public bool onTarget = false;
     public bool blocked = false;
 
-    private bool selectedCollision = false;
-
     private void selectTarget()
     {
         selectedTarget = onObject;
@@ -35,21 +33,12 @@ public class Cursor : MonoBehaviour
         selectedUI.UpdateToNone();
     }
 
-    public bool isReachable(Vector3 destination)
+    public bool IsReachable(Vector3 destination)
     {
         Vector3[] reachable = grid.movementRangeArray;
 
         if (Array.Exists<Vector3>(reachable, element => element == destination)) return true;
         else return false;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "SelectedFloor")
-        {
-            selectedCollision = true;
-            Debug.Log("I collide");
-        }
     }
 
     private void Update()
@@ -80,27 +69,29 @@ public class Cursor : MonoBehaviour
         }
         if (Input.GetKeyDown("space") && targetSelected && !(blocked || onTarget))
         {
-
-            if (selectedCollision)       //selectedFloor Prefab collides with Cursor
+            if (IsReachable(transform.position))
             {
                 selectedTarget.transform.position = new Vector3(transform.position.x, selectedTarget.transform.position.y, transform.position.z);
 
-                selectedCollision = !selectedCollision;
+                selectTarget();
+                grid.ShowMovementRange(selectedTarget, false);
+
+                disselectTarget();
+            }
+            else
+            {
+                Debug.Log(transform.position + " is not reachable.");
             }
         }
         if (Input.GetKeyDown("f"))
         {
             if (onTarget)
             {
-                Debug.Log("On Target");
-
                 selectTarget();
                 grid.ShowMovementRange(selectedTarget, true);
             }
             else
             {
-                Debug.Log("Not on Target");
-
                 selectTarget();
                 grid.ShowMovementRange(selectedTarget, false);
 

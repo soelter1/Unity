@@ -7,11 +7,14 @@ public class GridBehaviourScript : MonoBehaviour
 {
     FloorBehaviourScript[] floors;
 
-    public GameObject selectedFloor;
+    public GameObject RangeFloorGrid;
+    public GameObject AttackFloorGrid;
 
     public Vector3[] movementRangeArray;
+    public Vector3[] attackRangeArray;
 
-    int counter = 0;
+    int moveCounter = 0;
+    int attackCounter = 0;
 
     //calculates the ArraySize
     int ArraySize(int movementRange)
@@ -35,7 +38,7 @@ public class GridBehaviourScript : MonoBehaviour
 
         Vector3 objPos = obj.transform.position;        //Curserd Object Position
 
-        GameObject[] selectedFloors = new GameObject[ArraySize(movementRange)];
+        GameObject[] floorsInRange = new GameObject[ArraySize(movementRange)];
 
         movementRangeArray = new Vector3[movementRangeArraySize];
 
@@ -50,32 +53,68 @@ public class GridBehaviourScript : MonoBehaviour
                 //activate Range
                 if (state)
                 {
-                    Instantiate(selectedFloor, new Vector3(floorPos.x, 1.0f, floorPos.z), Quaternion.identity);     //generates selectedFloor Prefab
-                    Debug.Log(floorPos + " is reachable");
-                    movementRangeArray[counter] = floorPos;         //adds reachable Position to an array
-                    counter++;
+                    Instantiate(RangeFloorGrid, new Vector3(floorPos.x, 1.0f, floorPos.z), Quaternion.identity);     //generates selectedFloor Prefab
+
+                    movementRangeArray[moveCounter] = floorPos;         //adds reachable Position to an array
+                    moveCounter++;
                 }
                 //deactivate Range
                 else
                 {
-                    selectedFloors = GameObject.FindGameObjectsWithTag("SelectedFloor");    //Array of all selectedFloor Prefab Objects
+                    floorsInRange = GameObject.FindGameObjectsWithTag("RangeFloor");    //Array of all selectedFloor Prefab Objects
 
-                    foreach (GameObject go in selectedFloors)
+                    foreach (GameObject go in floorsInRange)
                     {
                         Destroy(go);            //Destroys them all
-
-                        Debug.Log(go.transform.position + " not reachable!");
                     }
                 }
             }
         }
+        moveCounter = 0;
+    }
 
-        foreach (Vector3 v in movementRangeArray)
+    public void ShowAttackRange(MoveAbleObject obj, bool state)
+    {
+        int attackRange = obj.attackRange;
+
+        int attackRangeArraySize = ArraySize(attackRange);
+
+        floors = GetComponentsInChildren<FloorBehaviourScript>();   //Array mit floors
+
+        Vector3 objPos = obj.transform.position;        //Curserd Object Position
+
+        GameObject[] attackableFloors = new GameObject[ArraySize(attackRange)];
+
+        attackRangeArray = new Vector3[attackRangeArraySize];
+
+        foreach (FloorBehaviourScript i in floors)
         {
-            Debug.Log(v + " is reachable Array");
+            Vector3 floorPos = i.transform.position;
+
+            float manhattan = Math.Abs(objPos.x - floorPos.x) + Math.Abs(objPos.z - floorPos.z);  //Manhattan Distance
+
+            if (manhattan <= attackRange * 10)
+            {
+                //activate Range
+                if (state)
+                {
+                    Instantiate(AttackFloorGrid, new Vector3(floorPos.x, 0.9f, floorPos.z), Quaternion.identity);     //generates selectedFloor Prefab
+
+                    attackRangeArray[attackCounter] = floorPos;         //adds reachable Position to an array
+                    attackCounter++;
+                }
+                //deactivate Range
+                else
+                {
+                    attackableFloors = GameObject.FindGameObjectsWithTag("AttackFloor");    //Array of all selectedFloor Prefab Objects
+
+                    foreach (GameObject go in attackableFloors)
+                    {
+                        Destroy(go);            //Destroys them all
+                    }
+                }
+            }
         }
-
-
-        counter = 0;
+        attackCounter = 0;
     }
 }

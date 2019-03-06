@@ -7,6 +7,7 @@ public class MoveAbleObject : MonoBehaviour
     public string unitName = "";
     public Cursor cursor;
     public int movementRange = 0;
+    public int attackRange = 0;
     public int atk = 0;
     public int hp = 1;
     public int player;

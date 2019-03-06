@@ -108,6 +108,7 @@ MonoBehaviour:
   unitName: King
   cursor: {fileID: 0}
   movementRange: 1
+  attackRange: 2
   atk: 0
   hp: 1
   player: 0
