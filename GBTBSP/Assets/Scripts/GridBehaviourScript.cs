@@ -54,13 +54,9 @@ public class GridBehaviourScript : MonoBehaviour
                 if (state)
                 {
                     Instantiate(RangeFloorGrid, new Vector3(floorPos.x, 1.0f, floorPos.z), Quaternion.identity);     //generates selectedFloor Prefab
-
                     movementRangeArray[moveCounter] = floorPos;         //adds reachable Position to an array
-                    moveCounter++;
-                    Instantiate(selectedFloor, new Vector3(floorPos.x, 1.0f, floorPos.z), Quaternion.identity);     //generates selectedFloor Prefab
                     //Debug.Log(floorPos + " is reachable");
-                    movementRangeArray[counter] = floorPos;         //adds reachable Position to an array
-                    counter++;
+                    moveCounter++;
                 }
                 //deactivate Range
                 else
@@ -103,8 +99,6 @@ public class GridBehaviourScript : MonoBehaviour
                 if (state)
                 {
                     Instantiate(AttackFloorGrid, new Vector3(floorPos.x, 0.9f, floorPos.z), Quaternion.identity);     //generates selectedFloor Prefab
-        }
-
                     attackRangeArray[attackCounter] = floorPos;         //adds reachable Position to an array
                     attackCounter++;
                 }
@@ -119,6 +113,7 @@ public class GridBehaviourScript : MonoBehaviour
                     }
                 }
             }
+        }
         attackCounter = 0;
     }
 }

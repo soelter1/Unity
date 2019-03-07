@@ -33,22 +33,13 @@ public class Cursor : MonoBehaviour
         selectedUI.UpdateToNone();
     }
 
-    public bool IsReachable(Vector3 destination)
+    public bool IsReachable(Vector3 destination, Vector3[] reachable)
     {
-        Vector3[] reachable = grid.movementRangeArray;
 
         if (Array.Exists<Vector3>(reachable, element => element == destination)) return true;
         else return false;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "SelectedFloor")
-        {
-            selectedCollision = true;
-            //Debug.Log("I collide");
-        }
-    }
     private void Update()
     {
         if (Input.GetKeyDown("w") && !(transform.position.z == (gridsizeZ * 10)))
@@ -77,20 +68,19 @@ public class Cursor : MonoBehaviour
         }
         if (Input.GetKeyDown("space") && targetSelected && !(blocked || onTarget))
         {
-            if (IsReachable(transform.position))
+            if (IsReachable(transform.position, grid.movementRangeArray))
             {
-                selectedTarget.transform.position = new Vector3(transform.position.x, selectedTarget.transform.position.y, transform.position.z);
+                selectedTarget.Move(transform.position.x, transform.position.z);
 
                 selectTarget();
                 grid.ShowMovementRange(selectedTarget, false);
-
+                grid.ShowAttackRange(selectedTarget, false);
                 disselectTarget();
             }
             else
             {
                 Debug.Log(transform.position + " is not reachable.");
                 selectedTarget.Move(transform.position.x, transform.position.z);
-                selectedCollision = !selectedCollision;
             }
         }
         if (Input.GetKeyDown("f"))
@@ -99,12 +89,13 @@ public class Cursor : MonoBehaviour
             {
                 selectTarget();
                 grid.ShowMovementRange(selectedTarget, true);
+                grid.ShowAttackRange(selectedTarget, true);
             }
             else
             {
                 selectTarget();
                 grid.ShowMovementRange(selectedTarget, false);
-
+                grid.ShowAttackRange(selectedTarget, false);
                 disselectTarget();
             }
         }

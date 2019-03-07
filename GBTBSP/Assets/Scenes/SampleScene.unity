@@ -5536,9 +5536,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c677af3cf7bad4aabfcb70719611dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFloor: {fileID: 2823451894649408035, guid: 4e6ce357f4ac3cc4fb27b1569fca4143,
+  RangeFloorGrid: {fileID: 6023296959496001905, guid: f814b12415bafbe49a589432e2635e25,
+    type: 3}
+  AttackFloorGrid: {fileID: 6023296959496001905, guid: 49f232bbdeb18c345bc70be064c998cd,
     type: 3}
   movementRangeArray: []
+  attackRangeArray: []
 --- !u!1 &906742157
 GameObject:
   m_ObjectHideFlags: 0
@@ -11281,6 +11284,7 @@ GameObject:
   - component: {fileID: 1658687847}
   - component: {fileID: 1658687846}
   - component: {fileID: 1658687845}
+  - component: {fileID: 1658687851}
   m_Layer: 0
   m_Name: Enemy (2)
   m_TagString: Untagged
@@ -11389,6 +11393,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1658687851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658687844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c8ee081b6b0a6f44934fc6ffe1d5f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: 
+  cursor: {fileID: 1991307980}
+  movementRange: 0
+  attackRange: 0
+  atk: 0
+  hp: 1
+  player: 2
+  boxcol: {fileID: 1658687847}
 --- !u!1 &1677835891
 GameObject:
   m_ObjectHideFlags: 0
@@ -11403,6 +11427,7 @@ GameObject:
   - component: {fileID: 1677835894}
   - component: {fileID: 1677835893}
   - component: {fileID: 1677835892}
+  - component: {fileID: 1677835898}
   m_Layer: 0
   m_Name: Enemy (1)
   m_TagString: Untagged
@@ -11511,6 +11536,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1677835898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677835891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c8ee081b6b0a6f44934fc6ffe1d5f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: 
+  cursor: {fileID: 1991307980}
+  movementRange: 0
+  attackRange: 0
+  atk: 0
+  hp: 1
+  player: 2
+  boxcol: {fileID: 1677835894}
 --- !u!1 &1713502906
 GameObject:
   m_ObjectHideFlags: 0
@@ -15559,6 +15604,16 @@ PrefabInstance:
         type: 3}
       propertyPath: movementRange
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6092929900499526924, guid: 57c191ae4c092234994e99b8d67d494d,
+        type: 3}
+      propertyPath: atk
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6092929900499526924, guid: 57c191ae4c092234994e99b8d67d494d,
+        type: 3}
+      propertyPath: attackRange
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57c191ae4c092234994e99b8d67d494d, type: 3}
