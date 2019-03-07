@@ -554,7 +554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61308615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 104.7, y: 1, z: 0}
+  m_LocalPosition: {x: 104.7, y: 1, z: 0.4}
   m_LocalScale: {x: 0.3, y: 0.3, z: 9.7}
   m_Children: []
   m_Father: {fileID: 1991307982}
@@ -1191,7 +1191,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -11566,6 +11566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8ee081b6b0a6f44934fc6ffe1d5f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isKing: {fileID: 0}
   unitName: 
   cursor: {fileID: 1991307980}
   movementRange: 0
@@ -11573,6 +11574,8 @@ MonoBehaviour:
   atk: 0
   hp: 1
   player: 2
+  hasMoved: 0
+  hasAttacked: 0
   boxcol: {fileID: 1658687847}
 --- !u!1 &1677835891
 GameObject:
@@ -11709,6 +11712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8ee081b6b0a6f44934fc6ffe1d5f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isKing: {fileID: 0}
   unitName: 
   cursor: {fileID: 1991307980}
   movementRange: 0
@@ -11716,6 +11720,8 @@ MonoBehaviour:
   atk: 0
   hp: 1
   player: 2
+  hasMoved: 0
+  hasAttacked: 0
   boxcol: {fileID: 1677835894}
 --- !u!1 &1713502906
 GameObject:
@@ -14034,6 +14040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9869f6753811a5a41b5c0bbf32a69703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: {fileID: 0}
   selectedTarget: {fileID: 0}
   onObject: {fileID: 0}
   selectedUI: {fileID: 2093997004}
