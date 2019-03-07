@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8222189679124492251}
+  - component: {fileID: 7371753461719933604}
   m_Layer: 0
   m_Name: 11x12Grid
   m_TagString: Untagged
@@ -162,6 +163,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7371753461719933604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5531709229234933004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c677af3cf7bad4aabfcb70719611dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeFloorGrid: {fileID: 6023296959496001905, guid: f814b12415bafbe49a589432e2635e25,
+    type: 3}
+  AttackFloorGrid: {fileID: 6023296959496001905, guid: 49f232bbdeb18c345bc70be064c998cd,
+    type: 3}
+  movementRangeArray: []
+  attackRangeArray: []
 --- !u!1001 &125832201980469884
 PrefabInstance:
   m_ObjectHideFlags: 0

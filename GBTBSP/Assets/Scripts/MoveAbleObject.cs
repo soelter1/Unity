@@ -7,6 +7,8 @@ using System;
 
 public class MoveAbleObject : MonoBehaviour
 {
+    public KingScript isKing = null;
+
     public string unitName = "";
     public Cursor cursor;
     public int movementRange = 0;
@@ -14,6 +16,14 @@ public class MoveAbleObject : MonoBehaviour
     public int atk = 0;
     public int hp = 1;
     public int player;
+
+    public bool hasMoved = false;
+    public bool hasAttacked = false;
+
+    void Start()
+    {
+        attackRange = movementRange + atk;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -42,16 +52,26 @@ public class MoveAbleObject : MonoBehaviour
             float t = Mathf.MoveTowards(transform.position.x, x, movementRange);
             moving = true;
             boxcol.isTrigger = true;
+            hasMoved = true;
         }
     }
 
     public void Attack(MoveAbleObject target)
     {
-        //cursor.IsReachable(cursor.transform.position, cursor.grid.attackRangeArray)
-
-        Debug.Log("try to pewpewpew");
         if (posInRange(target.transform.position, atk)) {            
-            Debug.Log("pewpewpew");
+            Debug.Log(name+" :pewpewpew");
+            target.getsDamaged(this);
+        }
+    }
+
+    public void getsDamaged(MoveAbleObject attacker)
+    {
+        Debug.Log(name + " :I got hit!");
+        hp -= 1;
+        if(hp <= 0)
+        {
+            if (isKing != null) isKing.theKingIsDeadLongLiveTheKing(attacker.player);
+           Destroy(this.gameObject);
         }
     }
 

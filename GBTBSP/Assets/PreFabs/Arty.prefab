@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 2514698426973049241}
   m_Layer: 0
   m_Name: Arty
-  m_TagString: Untagged
+  m_TagString: MoveAbleObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,9 +265,11 @@ MonoBehaviour:
   unitName: 
   cursor: {fileID: 0}
   movementRange: 1
+  attackRange: 0
   atk: 4
   hp: 2
   player: 0
+  hasMoved: 0
   boxcol: {fileID: 4779353107118475612}
 --- !u!95 &2514698426973049241
 Animator:

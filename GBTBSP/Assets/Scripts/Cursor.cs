@@ -5,7 +5,7 @@ using System;
 
 public class Cursor : MonoBehaviour
 {
-
+    public GameState gameState;
     public MoveAbleObject selectedTarget;
     public MoveAbleObject onObject;
     public SelectedUI selectedUI;
@@ -26,8 +26,15 @@ public class Cursor : MonoBehaviour
         selectedUI.UpdateTo(selectedTarget);
     }
 
-    private void disselectTarget()
+    public void deselectTarget()
     {
+        // Moved Stuff
+        if (selectedTarget != null)
+        {
+            grid.ShowMovementRange(selectedTarget, false);
+            grid.ShowAttackRange(selectedTarget, false);
+        }
+        //
         selectedTarget = null;
         targetSelected = false;
         selectedUI.UpdateToNone();
@@ -73,9 +80,11 @@ public class Cursor : MonoBehaviour
                 selectedTarget.Move(transform.position.x, transform.position.z);
 
                 selectTarget();
+                /* Moved to Disselect
                 grid.ShowMovementRange(selectedTarget, false);
                 grid.ShowAttackRange(selectedTarget, false);
-                disselectTarget();
+                */
+                deselectTarget();
             }
             else
             {
@@ -83,25 +92,36 @@ public class Cursor : MonoBehaviour
                 selectedTarget.Move(transform.position.x, transform.position.z);
             }
         }
-        if (Input.GetKeyDown("f"))
+        if (Input.GetKeyDown("f") && onObject.player == gameState.playerTurn)
         {
             if (onTarget)
             {
-                selectTarget();
-                grid.ShowMovementRange(selectedTarget, true);
-                grid.ShowAttackRange(selectedTarget, true);
+                if (!onObject.hasMoved && !onObject.hasAttacked)
+                {
+                    selectTarget();
+                    grid.ShowMovementRange(selectedTarget, true);
+                    grid.ShowAttackRange(selectedTarget, true);
+                }
+                else if(onObject.hasMoved && !onObject.hasAttacked)
+                {
+                    selectTarget();
+                    grid.ShowAttackRange(selectedTarget, true);
+                }
             }
             else
             {
                 selectTarget();
                 grid.ShowMovementRange(selectedTarget, false);
                 grid.ShowAttackRange(selectedTarget, false);
-                disselectTarget();
+                deselectTarget();
             }
         }
         if (Input.GetKeyDown("e") && onTarget && (onObject.player!=selectedTarget.player) )
         {
             selectedTarget.Attack(onObject);
+            grid.ShowMovementRange(selectedTarget, false);
+            grid.ShowAttackRange(selectedTarget, false);
+            deselectTarget();
         }
 
     }

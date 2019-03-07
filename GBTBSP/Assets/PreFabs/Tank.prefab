@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 244968565236359723}
   m_Layer: 0
   m_Name: Tank
-  m_TagString: Untagged
+  m_TagString: MoveAbleObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,6 +194,7 @@ MonoBehaviour:
   atk: 2
   hp: 5
   player: 0
+  hasMoved: 0
   boxcol: {fileID: 5044675778395460556}
 --- !u!65 &5044675778395460556
 BoxCollider:

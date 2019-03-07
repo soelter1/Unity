@@ -76,7 +76,7 @@ public class GridBehaviourScript : MonoBehaviour
     public void ShowAttackRange(MoveAbleObject obj, bool state)
     {
         int attackRange = obj.attackRange;
-
+        if (obj.hasMoved) attackRange = obj.attackRange - obj.movementRange;
         int attackRangeArraySize = ArraySize(attackRange);
 
         floors = GetComponentsInChildren<FloorBehaviourScript>();   //Array mit floors
