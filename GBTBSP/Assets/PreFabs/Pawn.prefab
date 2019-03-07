@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1048726533076870062}
   m_Layer: 0
   m_Name: Pawn
-  m_TagString: Untagged
+  m_TagString: MoveAbleObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,9 +108,11 @@ MonoBehaviour:
   unitName: Pawn
   cursor: {fileID: 0}
   movementRange: 1
+  attackRange: 0
   atk: 0
   hp: 5
   player: 0
+  hasMoved: 0
   boxcol: {fileID: 1048726533076870066}
 --- !u!54 &1048726533076870062
 Rigidbody:

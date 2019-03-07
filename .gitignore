@@ -1,7 +1,7 @@
-GBTBSP/Library/
-GBTBSP/Temp/
-GBTBSP/Build/
-GBTBSP/obj/
-GBTBSP/Assembly-CSharp.csproj
-GBTBSP/GBTBSP.sln
-GBTBSP/.vs/GBTBSP/v15
+Library/
+Temp/
+Build/
+obj/
+Assembly-CSharp.csproj
+GBTBSP.sln
+.vs/GBTBSP/v15

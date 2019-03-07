@@ -8,6 +8,7 @@ TagManager:
   - Floor
   - AttackFloor
   - RangeFloor
+  - MoveAbleObject
   layers:
   - Default
   - TransparentFX

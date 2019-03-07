@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 6092929900499526927}
   - component: {fileID: 6092929900499526924}
   - component: {fileID: 6092929900499526925}
+  - component: {fileID: 3075281064161113820}
   m_Layer: 0
   m_Name: King
-  m_TagString: Untagged
+  m_TagString: MoveAbleObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8ee081b6b0a6f44934fc6ffe1d5f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isKing: {fileID: 3075281064161113820}
   unitName: King
   cursor: {fileID: 0}
   movementRange: 1
@@ -112,6 +114,8 @@ MonoBehaviour:
   atk: 0
   hp: 1
   player: 0
+  hasMoved: 0
+  hasAttacked: 0
   boxcol: {fileID: 6092929900499526927}
 --- !u!54 &6092929900499526925
 Rigidbody:
@@ -129,3 +133,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &3075281064161113820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6092929900499526930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281f5d3c5193cc6448c5491146000a64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamestate: {fileID: 0}
