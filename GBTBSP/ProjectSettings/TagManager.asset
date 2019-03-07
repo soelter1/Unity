@@ -8,6 +8,7 @@ TagManager:
   - Floor
   - AttackFloor
   - RangeFloor
+  - CubixComponent
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - PostProcessing
   - Floor
   - Selection
-  - 
+  - Cubix
   - 
   - 
   - 

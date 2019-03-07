@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\BlockMovement.cs" />
     <Compile Include="Assets\Scripts\CamTarget.cs" />
     <Compile Include="Assets\Scripts\Cursor.cs" />
+    <Compile Include="Assets\Scripts\DestroyBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\ExitPrompt.cs" />
     <Compile Include="Assets\Scripts\FloorBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\GameState.cs" />
@@ -72,6 +73,8 @@
     <Compile Include="Assets\Scripts\MoveAbleObject.cs" />
     <Compile Include="Assets\Scripts\SelectedUI.cs" />
     <Compile Include="Assets\Scripts\StatsPanel.cs" />
+    <Compile Include="Assets\SpaceSkies Free\Demo\Scripts\LookCamera.cs" />
+    <Compile Include="Assets\SpaceSkies Free\Demo\Scripts\SkyboxChanger.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/UnityProjects/1NicesGameStudio/GBTBSP/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
