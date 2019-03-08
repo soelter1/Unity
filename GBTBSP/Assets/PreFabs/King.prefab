@@ -107,8 +107,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isKing: {fileID: 3075281064161113820}
-  unitName: King
   cursor: {fileID: 0}
+  unitName: King
+  unitDescr: Essential Unit. Squishy. Lose him, lose the Game. Keep out of Danger
+    at all costs!
   movementRange: 1
   attackRange: 2
   atk: 0

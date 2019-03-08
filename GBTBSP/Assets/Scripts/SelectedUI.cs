@@ -7,12 +7,14 @@ using UnityEngine.UI;
 public class SelectedUI : MonoBehaviour
 {
     public Text targetName;
+    public Text buttonText;
     public StatsPanel stats;
+    public AudioSource buttonpress;
 
     public void UpdateTo(MoveAbleObject obj)
     {
         targetName.text = obj.unitName;
-        stats.UpdateTo(obj.atk, obj.movementRange, obj.hp);
+        stats.UpdateTo(obj.atk, obj.movementRange, obj.hp, obj.unitName, obj.unitDescr);
     }
 
     public void UpdateToNone()
@@ -22,6 +24,16 @@ public class SelectedUI : MonoBehaviour
 
     public void showStatsPanel()
     {
-        stats.gameObject.SetActive(true);
+        buttonpress.Play();
+        if (!stats.gameObject.activeSelf)
+        {
+            buttonText.text = ">>";
+            stats.gameObject.SetActive(true);
+        }
+        else
+        {
+            buttonText.text = "<<";
+            stats.gameObject.SetActive(false);
+        }
     }
 }

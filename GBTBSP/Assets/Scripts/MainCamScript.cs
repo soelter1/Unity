@@ -5,7 +5,8 @@ using UnityEngine;
 public class MainCamScript : MonoBehaviour
 {
     public GameState gameState;
-    public Transform grid;
+    public Transform cursor;
+
     public int posCount = 1;
     public Vector3 p1Pkt1;
     public Vector3 p1Rot1;
@@ -20,11 +21,11 @@ public class MainCamScript : MonoBehaviour
     private void Update()
     {
         if(Input.GetKeyUp("c")){
-            if (posCount == 1)
+            if (posCount < 3)
             { 
-                posCount = 2;
+                posCount += 1;
             }
-            else if (posCount == 2)
+            else if (posCount == 3)
             {
                 posCount = 1;
             }
@@ -49,6 +50,17 @@ public class MainCamScript : MonoBehaviour
         {
             transform.position = p2Pkt2;
             transform.rotation = Quaternion.Euler(p2Rot2);
+        }
+        
+        if (posCount == 3 && gameState.playerTurn == 1)
+        {
+            transform.position = cursor.position + p1Pkt1;
+            transform.rotation = Quaternion.Euler(p1Rot1);
+        }
+        if (posCount == 3 && gameState.playerTurn == 2)
+        {
+            transform.position = cursor.position + new Vector3(p1Pkt1.x, 40, -p1Pkt1.z);
+            transform.rotation = Quaternion.Euler(p2Rot1);
         }
     }
 }
