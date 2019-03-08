@@ -14,6 +14,7 @@ public class MainMenuBehaviour : MonoBehaviour
     public ExitPrompt DLC;
     public bool promptActive = false;
 
+    public AudioSource klick;
     public AudioSource offGrid;
 
     public void startButtonClick()
@@ -29,6 +30,7 @@ public class MainMenuBehaviour : MonoBehaviour
         {
             if (!promptActive)
             {
+            klick.Play();
             DLC.gameObject.SetActive(true);
             promptActive = true;
             }
@@ -38,6 +40,7 @@ public class MainMenuBehaviour : MonoBehaviour
     {
         if (!promptActive)
         {
+            klick.Play();
             exitPrompt.gameObject.SetActive(true);
             promptActive = true;
         }
