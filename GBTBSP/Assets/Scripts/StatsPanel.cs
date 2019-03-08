@@ -15,8 +15,4 @@ public class StatsPanel : MonoBehaviour
         Description.text = descr;
         statNumbers.text = (atk+"\n\n"+range+"\n\n"+hp);
     }
-    public void close()
-    {
-        this.gameObject.SetActive(false);
-    }
 }

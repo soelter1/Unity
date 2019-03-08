@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameState : MonoBehaviour
 {
     public Cursor cursor;
+    public AudioSource buttonpress;
     public GameObject[] moveAbleObjects;
 
     public GameObject turnPopUp;
@@ -38,24 +39,28 @@ public class GameState : MonoBehaviour
 
     public void menuClick()
     {
+        buttonpress.Play();
         if (!MenuPanel.activeSelf) MenuPanel.SetActive(true);
         else MenuPanel.SetActive(false);
     }
 
     public void helpClick()
     {
+        buttonpress.Play();
         if (!HelpPanel.activeSelf) HelpPanel.SetActive(true);
         else HelpPanel.SetActive(false);
     }
 
     public void turnClick()
     {
+        buttonpress.Play();
         cursor.controlSwitch();
         moveAbleObjects = GameObject.FindGameObjectsWithTag("MoveAbleObject");
         if(cursor.selectedTarget != null)cursor.deselectTarget();
         foreach(GameObject mOb in moveAbleObjects)
         {
             mOb.GetComponent<MoveAbleObject>().hasMoved = false;
+            mOb.GetComponent<MoveAbleObject>().hasAttacked = false;
         }
 
         if (playerTurn == 1)
@@ -75,11 +80,13 @@ public class GameState : MonoBehaviour
 
     public void quitButtonClick()
     {
+        buttonpress.Play();
         SceneManager.LoadScene("MainMenu");
     }
 
     public void restartButtonClick()
     {
+        buttonpress.Play();
         SceneManager.LoadScene("GameScene");
     }
     

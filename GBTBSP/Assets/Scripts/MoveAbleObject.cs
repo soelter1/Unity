@@ -9,6 +9,9 @@ public class MoveAbleObject : MonoBehaviour
     public Cursor cursor;
     public InfantryScript isInf = null;
 
+    public AudioSource moveSound;
+    public AudioSource attackSound;
+
     public string unitName = "";
     public string unitDescr = "";
     public int movementRange = 0;
@@ -48,6 +51,7 @@ public class MoveAbleObject : MonoBehaviour
     {
         if (posInRange(new Vector3(x, 0, z), movementRange) && !hasMoved)
         {
+            if(moveSound!=null) moveSound.Play();
             targetPos = new Vector3(x, transform.position.y, z);
             float t = Mathf.MoveTowards(transform.position.x, x, movementRange);
             moving = true;
@@ -58,7 +62,8 @@ public class MoveAbleObject : MonoBehaviour
 
     public void Attack(MoveAbleObject target)
     {
-        if (posInRange(target.transform.position, atk) && !hasAttacked && target.player != player) {            
+        if (posInRange(target.transform.position, atk) && !hasAttacked && target.player != player) {
+            if (attackSound != null) attackSound.Play();
             Debug.Log(name+" :pewpewpew");
             target.getsDamaged(this);
             hasAttacked = true;

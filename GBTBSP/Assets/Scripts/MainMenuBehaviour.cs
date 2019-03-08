@@ -14,11 +14,14 @@ public class MainMenuBehaviour : MonoBehaviour
     public ExitPrompt DLC;
     public bool promptActive = false;
 
+    public AudioSource offGrid;
+
     public void startButtonClick()
     {
         if (!promptActive)
         {
-            SceneManager.LoadScene(1);
+            offGrid.Play();
+            Invoke("startGame", 1.8f);
         }
     }
 
@@ -31,7 +34,6 @@ public class MainMenuBehaviour : MonoBehaviour
             }
     }
 
-
     public void ExitButtonClick()
     {
         if (!promptActive)
@@ -39,5 +41,10 @@ public class MainMenuBehaviour : MonoBehaviour
             exitPrompt.gameObject.SetActive(true);
             promptActive = true;
         }
+    }
+
+    void startGame()
+    {
+        SceneManager.LoadScene(1);
     }
 }

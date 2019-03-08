@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class SelectedUI : MonoBehaviour
 {
     public Text targetName;
+    public Text buttonText;
     public StatsPanel stats;
+    public AudioSource buttonpress;
 
     public void UpdateTo(MoveAbleObject obj)
     {
@@ -22,7 +24,16 @@ public class SelectedUI : MonoBehaviour
 
     public void showStatsPanel()
     {
-        if (!stats.gameObject.activeSelf) stats.gameObject.SetActive(true);
-        else stats.gameObject.SetActive(false);
+        buttonpress.Play();
+        if (!stats.gameObject.activeSelf)
+        {
+            buttonText.text = ">>";
+            stats.gameObject.SetActive(true);
+        }
+        else
+        {
+            buttonText.text = "<<";
+            stats.gameObject.SetActive(false);
+        }
     }
 }
