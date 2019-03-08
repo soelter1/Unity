@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8ee081b6b0a6f44934fc6ffe1d5f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isKing: {fileID: 0}
   unitName: Pawn
   cursor: {fileID: 0}
   movementRange: 1
@@ -113,6 +114,7 @@ MonoBehaviour:
   hp: 5
   player: 0
   hasMoved: 0
+  hasAttacked: 0
   boxcol: {fileID: 1048726533076870066}
 --- !u!54 &1048726533076870062
 Rigidbody:

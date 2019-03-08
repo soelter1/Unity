@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AMVBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\BlockMovement.cs" />
     <Compile Include="Assets\Scripts\CamTarget.cs" />
     <Compile Include="Assets\Scripts\Cursor.cs" />

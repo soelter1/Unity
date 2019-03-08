@@ -9,20 +9,16 @@ public class DestroyBehaviourScript : MonoBehaviour
     public float force = 10.0f;
 
     // Start is called before the first frame update
-    void OnMouseDown()
+    void Start()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
-        RaycastHit hit;
-
-        if(Physics.Raycast(ray, out hit, 100))
+        foreach (Collider c in colliders)
         {
-            Collider[] colliders = Physics.OverlapSphere(hit.point, radius);
-
-            foreach (Collider c in colliders)
-            {
-                c.attachedRigidbody.AddExplosionForce(force, hit.point, radius, 0.5f, ForceMode.Impulse);
-            }
+            if (c.tag == "Floor" || c.tag == "Cursor")
+                continue;
+            c.attachedRigidbody.isKinematic = false;
+            c.attachedRigidbody.AddExplosionForce(force, transform.position, radius, 0.5f, ForceMode.Impulse);
         }
     }
 
