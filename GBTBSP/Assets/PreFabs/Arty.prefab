@@ -262,14 +262,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8ee081b6b0a6f44934fc6ffe1d5f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: 
+  isKing: {fileID: 0}
   cursor: {fileID: 0}
+  unitName: Artillery
+  unitDescr: Slow. Long Range. Use it to punch a hole in the Enemy Line.
   movementRange: 1
   attackRange: 0
   atk: 4
   hp: 2
   player: 0
   hasMoved: 0
+  hasAttacked: 0
   boxcol: {fileID: 4779353107118475612}
 --- !u!95 &2514698426973049241
 Animator:

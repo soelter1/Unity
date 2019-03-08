@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using System;
-
 
 public class MoveAbleObject : MonoBehaviour
 {
     public KingScript isKing = null;
+    public Cursor cursor;
+    public InfantryScript isInf = null;
 
     public string unitName = "";
-    public Cursor cursor;
+    public string unitDescr = "";
     public int movementRange = 0;
     public int attackRange = 0;
     public int atk = 0;
@@ -36,8 +36,8 @@ public class MoveAbleObject : MonoBehaviour
 
     private bool posInRange(Vector3 target, int range)
     {
-        Vector3 objPos = transform.position;
-        return (Math.Abs(objPos.x - target.x) + Math.Abs(objPos.z - target.z) <= range * 10);  //Manhattan Distance
+        return (  System.Math.Abs(transform.position.x - target.x) 
+                + System.Math.Abs(transform.position.z - target.z) <= range * 10);  //Manhattan Distance
     }
 
     Vector3 targetPos;
@@ -46,7 +46,7 @@ public class MoveAbleObject : MonoBehaviour
 
     public void Move(float x, float z)
     {
-        if (posInRange(new Vector3(x, 0, z), movementRange))
+        if (posInRange(new Vector3(x, 0, z), movementRange) && !hasMoved)
         {
             targetPos = new Vector3(x, transform.position.y, z);
             float t = Mathf.MoveTowards(transform.position.x, x, movementRange);
@@ -58,10 +58,12 @@ public class MoveAbleObject : MonoBehaviour
 
     public void Attack(MoveAbleObject target)
     {
-        if (posInRange(target.transform.position, atk)) {            
+        if (posInRange(target.transform.position, atk) && !hasAttacked && target.player != player) {            
             Debug.Log(name+" :pewpewpew");
             target.getsDamaged(this);
+            hasAttacked = true;
         }
+        if(isInf != null && target == this) { Debug.Log("Im Inf!");  }
     }
 
     public void getsDamaged(MoveAbleObject attacker)

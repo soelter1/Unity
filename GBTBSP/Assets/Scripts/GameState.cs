@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class GameState : MonoBehaviour
 
     public GameObject turnPopUp;
     public GameObject GameOverPopUp;
+    public GameObject MenuPanel;
+    public GameObject HelpPanel;
+
     public Text winPlaya;
     public Text TurnText;
     public Text PlayerText;
@@ -34,16 +38,19 @@ public class GameState : MonoBehaviour
 
     public void menuClick()
     {
-
+        if (!MenuPanel.activeSelf) MenuPanel.SetActive(true);
+        else MenuPanel.SetActive(false);
     }
 
     public void helpClick()
     {
-
+        if (!HelpPanel.activeSelf) HelpPanel.SetActive(true);
+        else HelpPanel.SetActive(false);
     }
 
     public void turnClick()
     {
+        cursor.controlSwitch();
         moveAbleObjects = GameObject.FindGameObjectsWithTag("MoveAbleObject");
         if(cursor.selectedTarget != null)cursor.deselectTarget();
         foreach(GameObject mOb in moveAbleObjects)
@@ -64,6 +71,16 @@ public class GameState : MonoBehaviour
         }
         PopUpControl();
         Invoke("KillPopUp", 2);
+    }
+
+    public void quitButtonClick()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void restartButtonClick()
+    {
+        SceneManager.LoadScene("GameScene");
     }
     
     void PopUpControl()

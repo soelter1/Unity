@@ -12,7 +12,7 @@ public class SelectedUI : MonoBehaviour
     public void UpdateTo(MoveAbleObject obj)
     {
         targetName.text = obj.unitName;
-        stats.UpdateTo(obj.atk, obj.movementRange, obj.hp);
+        stats.UpdateTo(obj.atk, obj.movementRange, obj.hp, obj.unitName, obj.unitDescr);
     }
 
     public void UpdateToNone()
@@ -22,6 +22,7 @@ public class SelectedUI : MonoBehaviour
 
     public void showStatsPanel()
     {
-        stats.gameObject.SetActive(true);
+        if (!stats.gameObject.activeSelf) stats.gameObject.SetActive(true);
+        else stats.gameObject.SetActive(false);
     }
 }
