@@ -99,14 +99,7 @@ public class Cursor : MonoBehaviour
                 if (IsReachable(transform.position, grid.movementRangeArray))
                 {
                     selectedTarget.Move(transform.position.x, transform.position.z);
-
-                    //selectTarget(); // Warum? Unnötig
                     deselectTarget();
-                }
-                else
-                {
-                    //Debug.Log(transform.position + " is not reachable.");
-                    //selectedTarget.Move(transform.position.x, transform.position.z); // <- Was sollte das machen?
                 }
             }
             if(onTarget){
@@ -122,9 +115,6 @@ public class Cursor : MonoBehaviour
             }
             else
             {
-                //selectTarget();  // Warum xD? 
-                //grid.ShowMovementRange(selectedTarget, false);
-                //grid.ShowAttackRange(selectedTarget, false);
                 deselectTarget();
             }
         }

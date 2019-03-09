@@ -9,6 +9,8 @@ public class MoveAbleObject : MonoBehaviour
     public Cursor cursor;
     public InfantryScript isInf = null;
 
+    public DestroyBehaviourScript destroyBehaviourScript;
+
     public AudioSource moveSound;
     public AudioSource attackSound;
 
@@ -65,6 +67,24 @@ public class MoveAbleObject : MonoBehaviour
         if (posInRange(target.transform.position, atk) && !hasAttacked && target.player != player) {
             if (attackSound != null) attackSound.Play();
             Debug.Log(name+" :pewpewpew");
+
+            if(gameObject.name == "AMV")
+            {
+                GameObject barrel = GameObject.FindGameObjectWithTag("Barrel");
+
+                //barrel.AddComponent<AMVBehaviourScript>();
+
+                barrel.GetComponent<AMVBehaviourScript>().enabled = true;
+                barrel.GetComponent<AMVBehaviourScript>().enabled = false;
+            }
+            
+
+            if(target.name == "AMV")
+            {
+                Debug.Log("I bims 1 BMW");
+                target.gameObject.AddComponent<DestroyBehaviourScript>();
+            }
+
             target.getsDamaged(this);
             hasAttacked = true;
         }

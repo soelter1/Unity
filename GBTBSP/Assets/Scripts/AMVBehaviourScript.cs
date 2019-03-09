@@ -9,7 +9,26 @@ public class AMVBehaviourScript : MonoBehaviour
     public GameObject ProjectilPlayer2;
     float projectileLife = 20.0f;
 
-    public GameObject Parent;
+    void Start()
+    {
+
+        Vector3 barrelPos = gameObject.transform.position;
+
+        if (gameObject.GetComponentInParent<MoveAbleObject>().player == 2)
+        {
+            Debug.Log("fire player2");
+            GameObject projectile = Instantiate(ProjectilPlayer2, new Vector3(barrelPos.x, barrelPos.y, barrelPos.z), Quaternion.Euler(new Vector3(transform.rotation.x + 180, transform.rotation.y, transform.rotation.z)));      //Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z))
+            projectile.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -projectileSpeed), ForceMode.Impulse);
+            Destroy(projectile, projectileLife);
+        }
+        if (gameObject.GetComponentInParent<MoveAbleObject>().player == 1)
+        {
+            Debug.Log("fire player1");
+            GameObject projectile = Instantiate(ProjectilPlayer1, new Vector3(barrelPos.x, barrelPos.y, barrelPos.z), Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z)));      //Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z))
+            projectile.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, projectileSpeed), ForceMode.Impulse);
+            Destroy(projectile, projectileLife);
+        }
+    }
 
 
 
@@ -17,16 +36,17 @@ public class AMVBehaviourScript : MonoBehaviour
     void Update()
     {
 
+        /*
+
         Vector3 barrelPos = transform.position;
 
         if (Input.GetKeyDown("g"))
-        {
-            //projectile.AddComponent<Rigidbody>();            
+        {           
 
             if (Parent.transform.rotation.y > 0)
             {
                 Debug.Log("fire player2");
-                GameObject projectile = Instantiate(ProjectilPlayer1, new Vector3(barrelPos.x, barrelPos.y, barrelPos.z), Quaternion.Euler(new Vector3(transform.rotation.x + 180, transform.rotation.y, transform.rotation.z)));      //Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z))
+                GameObject projectile = Instantiate(ProjectilPlayer2, new Vector3(barrelPos.x, barrelPos.y, barrelPos.z), Quaternion.Euler(new Vector3(transform.rotation.x + 180, transform.rotation.y, transform.rotation.z)));      //Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z))
                 projectile.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -projectileSpeed), ForceMode.Impulse);
                 Destroy(projectile, projectileLife);
             }
@@ -34,12 +54,17 @@ public class AMVBehaviourScript : MonoBehaviour
             {
 
                 Debug.Log("fire player1");
-                GameObject projectile = Instantiate(ProjectilPlayer2, new Vector3(barrelPos.x, barrelPos.y, barrelPos.z), Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z)));      //Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z))
+                GameObject projectile = Instantiate(ProjectilPlayer1, new Vector3(barrelPos.x, barrelPos.y, barrelPos.z), Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z)));      //Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z))
                 projectile.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, projectileSpeed), ForceMode.Impulse);
                 Destroy(projectile, projectileLife);
             }
         }
+
+        */
     }
+
+    
+    /*
 
     private void OnTriggerEnter(Collider other)
     {
@@ -50,4 +75,6 @@ public class AMVBehaviourScript : MonoBehaviour
             gameObject.AddComponent<DestroyBehaviourScript>();
         }
     }
+
+    */
 }

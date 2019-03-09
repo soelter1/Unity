@@ -6,9 +6,8 @@ MonoImporter:
   defaultReferences:
   - ProjectilPlayer1: {fileID: 6794156031327993146, guid: 009e99082b184074fb6bfc40b37cf272,
       type: 3}
-  - ProjectilPlayer2: {fileID: 6794156031327993146, guid: edb7bcc2b470bfc4b86b0a2783c7c846,
+  - ProjectilPlayer2: {fileID: 6794156031327993146, guid: 1aaba90910a43f747816f3acdd9b6b99,
       type: 3}
-  - Parent: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

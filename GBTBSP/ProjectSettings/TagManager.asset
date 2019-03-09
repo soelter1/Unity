@@ -12,6 +12,7 @@ TagManager:
   - Barrel
   - Projectile
   - Grid
+  - FirePower
   layers:
   - Default
   - TransparentFX

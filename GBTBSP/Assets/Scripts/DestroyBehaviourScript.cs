@@ -11,14 +11,14 @@ public class DestroyBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+        Rigidbody[] colliders = gameObject.GetComponentsInChildren<Rigidbody>();
 
-        foreach (Collider c in colliders)
+        foreach (Rigidbody c in colliders)
         {
             if (c.tag == "Floor" || c.tag == "Cursor")
                 continue;
-            c.attachedRigidbody.isKinematic = false;
-            c.attachedRigidbody.AddExplosionForce(force, transform.position, radius, 0.5f, ForceMode.Impulse);
+            c.isKinematic = false;
+            c.AddExplosionForce(force, transform.position, radius, 0.5f, ForceMode.Impulse);
         }
     }
 
