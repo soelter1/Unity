@@ -68,20 +68,26 @@ public class MoveAbleObject : MonoBehaviour
             if (attackSound != null) attackSound.Play();
             Debug.Log(name+" :pewpewpew");
 
-            if(gameObject.name == "AMV")
+            if(gameObject.name == "AMV_Player1" || gameObject.name == "AMV_Player2")
             {
-                GameObject barrel = GameObject.FindGameObjectWithTag("Barrel");
+                Debug.Log(name + "s Barrel");
+                GameObject[] barrels = GameObject.FindGameObjectsWithTag("Barrel");
 
                 //barrel.AddComponent<AMVBehaviourScript>();
 
-                barrel.GetComponent<AMVBehaviourScript>().enabled = true;
-                barrel.GetComponent<AMVBehaviourScript>().enabled = false;
+                foreach(GameObject barrel in barrels)
+                {
+                    if(barrel.GetComponentInParent<MoveAbleObject>().player == player)
+                    {
+                        barrel.GetComponent<BarrelBehaviourScript>().enabled = true;
+                    }
+                }
+                //barrel.GetComponent<BarrelBehaviourScript>().enabled = false;
             }
             
 
-            if(target.name == "AMV")
+            if(gameObject.name == "AMV_Player1" || gameObject.name == "AMV_Player2")
             {
-                Debug.Log("I bims 1 BMW");
                 target.gameObject.AddComponent<DestroyBehaviourScript>();
             }
 

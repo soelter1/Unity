@@ -60,7 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AMVBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\BarrelBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\BlockMovement.cs" />
     <Compile Include="Assets\Scripts\CamTarget.cs" />
     <Compile Include="Assets\Scripts\Cursor.cs" />
@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\MainCamScript.cs" />
     <Compile Include="Assets\Scripts\MainMenuBehaviour.cs" />
     <Compile Include="Assets\Scripts\MoveAbleObject.cs" />
+    <Compile Include="Assets\Scripts\ProjectileBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\SelectedUI.cs" />
     <Compile Include="Assets\Scripts\StatsPanel.cs" />
     <Compile Include="Assets\SpaceSkies Free\Demo\Scripts\LookCamera.cs" />

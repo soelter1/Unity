@@ -11,6 +11,10 @@ public class DestroyBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        Debug.Log("Destroy Behavoir appended to " + gameObject.name);
+
+        /*
         Rigidbody[] colliders = gameObject.GetComponentsInChildren<Rigidbody>();
 
         foreach (Rigidbody c in colliders)
@@ -19,6 +23,30 @@ public class DestroyBehaviourScript : MonoBehaviour
                 continue;
             c.isKinematic = false;
             c.AddExplosionForce(force, transform.position, radius, 0.5f, ForceMode.Impulse);
+        }
+
+    */
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        Debug.Log("triggered by " + other.name);
+
+
+        if (other.gameObject.tag == "Projectile")
+        {
+            Debug.Log("onTrigger");
+            Destroy(other.gameObject);
+
+            Rigidbody[] colliders = gameObject.GetComponentsInChildren<Rigidbody>();
+
+            foreach (Rigidbody c in colliders)
+            {
+                c.isKinematic = false;
+                c.AddExplosionForce(force, transform.position, radius, 0.5f, ForceMode.Impulse);
+            }
+
         }
     }
 
