@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BarrelBehaviourScript : MonoBehaviour
 {
-    float projectileSpeed = 3f;
-    float projectileLife = 20f;
+    public float projectileSpeed = 1f;
+    public float projectileLife = 20f;
     public GameObject Projectil;
 
     void Start()

@@ -8,6 +8,8 @@ public class DestroyBehaviourScript : MonoBehaviour
     public float radius = 5.0f;
     public float force = 10.0f;
 
+    private GameObject projectile;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,11 @@ public class DestroyBehaviourScript : MonoBehaviour
     */
     }
 
+    private void destroyProjectile()
+    {
+        Destroy(projectile);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
 
@@ -37,8 +44,7 @@ public class DestroyBehaviourScript : MonoBehaviour
         if (other.gameObject.tag == "Projectile")
         {
             Debug.Log("onTrigger");
-            Destroy(other.gameObject);
-
+            projectile = other.gameObject;
             Rigidbody[] colliders = gameObject.GetComponentsInChildren<Rigidbody>();
 
             foreach (Rigidbody c in colliders)
@@ -46,7 +52,7 @@ public class DestroyBehaviourScript : MonoBehaviour
                 c.isKinematic = false;
                 c.AddExplosionForce(force, transform.position, radius, 0.5f, ForceMode.Impulse);
             }
-
+            Invoke("destroyProjectile", 20f);
         }
     }
 

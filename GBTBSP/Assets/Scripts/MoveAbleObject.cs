@@ -10,6 +10,7 @@ public class MoveAbleObject : MonoBehaviour
     public InfantryScript isInf = null;
 
     public DestroyBehaviourScript destroyBehaviourScript;
+    public BarrelBehaviourScript /*GameObject*/ barrel;
 
     public AudioSource moveSound;
     public AudioSource attackSound;
@@ -66,27 +67,14 @@ public class MoveAbleObject : MonoBehaviour
     {
         if (posInRange(target.transform.position, atk) && !hasAttacked && target.player != player) {
             if (attackSound != null) attackSound.Play();
-            Debug.Log(name+" :pewpewpew");
+            Debug.Log(name + " :pewpewpew");
 
-            if(gameObject.name == "AMV_Player1" || gameObject.name == "AMV_Player2")
-            {
-                Debug.Log(name + "s Barrel");
-                GameObject[] barrels = GameObject.FindGameObjectsWithTag("Barrel");
+            Debug.Log(name + "s Barrel");
 
-                //barrel.AddComponent<AMVBehaviourScript>();
+            barrel.enabled = true;
 
-                foreach(GameObject barrel in barrels)
-                {
-                    if(barrel.GetComponentInParent<MoveAbleObject>().player == player)
-                    {
-                        barrel.GetComponent<BarrelBehaviourScript>().enabled = true;
-                    }
-                }
-                //barrel.GetComponent<BarrelBehaviourScript>().enabled = false;
-            }
-            
 
-            if(gameObject.name == "AMV_Player1" || gameObject.name == "AMV_Player2")
+            if (gameObject.name == "AMV_Player1" || gameObject.name == "AMV_Player2")
             {
                 target.gameObject.AddComponent<DestroyBehaviourScript>();
             }
