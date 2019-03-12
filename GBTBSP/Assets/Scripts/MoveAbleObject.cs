@@ -9,8 +9,9 @@ public class MoveAbleObject : MonoBehaviour
     public Cursor cursor;
     public InfantryScript isInf = null;
 
-    public DestroyBehaviourScript destroyBehaviourScript;
-    public BarrelBehaviourScript /*GameObject*/ barrel;
+    //public DestroyBehaviourScript destroyBehaviourScript;
+    public LethalProjectileBehaviourScript lethalProjectile;
+    public NonLethalProjectileBehaviourScript nonLethalProjectile;
 
     public AudioSource moveSound;
     public AudioSource attackSound;
@@ -69,14 +70,13 @@ public class MoveAbleObject : MonoBehaviour
             if (attackSound != null) attackSound.Play();
             Debug.Log(name + " :pewpewpew");
 
-            Debug.Log(name + "s Barrel");
-
-            barrel.enabled = true;
-
-
-            if (gameObject.name == "AMV_Player1" || gameObject.name == "AMV_Player2")
+            if (target.hp - 1 <= 0)
             {
-                target.gameObject.AddComponent<DestroyBehaviourScript>();
+                lethalProjectile.enabled = true;
+            }
+            else
+            {
+                nonLethalProjectile.enabled = true;
             }
 
             target.getsDamaged(this);
@@ -85,14 +85,14 @@ public class MoveAbleObject : MonoBehaviour
         if(isInf != null && target == this) { Debug.Log("Im Inf!");  }
     }
 
-    public void getsDamaged(MoveAbleObject attacker)
+    void getsDamaged(MoveAbleObject attacker)
     {
         Debug.Log(name + " :I got hit!");
         hp -= 1;
         if(hp <= 0)
         {
             if (isKing != null) isKing.theKingIsDeadLongLiveTheKing(attacker.player);
-           Destroy(this.gameObject);
+            //destruction x seconds after projectile impact in DestroyBehaviourScript
         }
     }
 

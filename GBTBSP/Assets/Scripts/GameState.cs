@@ -61,6 +61,12 @@ public class GameState : MonoBehaviour
         {
             mOb.GetComponent<MoveAbleObject>().hasMoved = false;
             mOb.GetComponent<MoveAbleObject>().hasAttacked = false;
+
+            if(mOb.name != "BlenderKing")
+            {
+                mOb.GetComponent<NonLethalProjectileBehaviourScript>().enabled = false;
+                mOb.GetComponent<LethalProjectileBehaviourScript>().enabled = false;
+            }
         }
 
         if (playerTurn == 1)

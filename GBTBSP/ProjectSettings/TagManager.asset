@@ -10,9 +10,11 @@ TagManager:
   - Cursor
   - MoveAbleObject
   - Barrel
-  - Projectile
   - Grid
   - FirePower
+  - NonLethalProjectile
+  - Projectile
+  - LethalProjectile
   layers:
   - Default
   - TransparentFX

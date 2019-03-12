@@ -14,20 +14,6 @@ public class DestroyBehaviourScript : MonoBehaviour
     void Start()
     {
 
-        Debug.Log("Destroy Behavoir appended to " + gameObject.name);
-
-        /*
-        Rigidbody[] colliders = gameObject.GetComponentsInChildren<Rigidbody>();
-
-        foreach (Rigidbody c in colliders)
-        {
-            if (c.tag == "Floor" || c.tag == "Cursor")
-                continue;
-            c.isKinematic = false;
-            c.AddExplosionForce(force, transform.position, radius, 0.5f, ForceMode.Impulse);
-        }
-
-    */
     }
 
     private void destroyProjectile()
@@ -37,13 +23,9 @@ public class DestroyBehaviourScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        Debug.Log("triggered by " + other.name);
-
-
-        if (other.gameObject.tag == "Projectile")
+        if (other.gameObject.tag == "LethalProjectile")
         {
-            Debug.Log("onTrigger");
+            Debug.Log("triggered by " + other.name);
             projectile = other.gameObject;
             Rigidbody[] colliders = gameObject.GetComponentsInChildren<Rigidbody>();
 
@@ -52,7 +34,16 @@ public class DestroyBehaviourScript : MonoBehaviour
                 c.isKinematic = false;
                 c.AddExplosionForce(force, transform.position, radius, 0.5f, ForceMode.Impulse);
             }
-            Invoke("destroyProjectile", 20f);
+            Invoke("destroyProjectile", 0.1f);
+            Destroy(this.gameObject, 1.5f);
+        }
+
+        if (other.gameObject.tag == "NonLethalProjectile")
+        {
+            other.attachedRigidbody.velocity = Vector3.zero;
+            other.attachedRigidbody.angularVelocity = Vector3.zero;
+            other.attachedRigidbody.AddExplosionForce(force, transform.position, radius, 0.5f, ForceMode.Impulse);
+            Invoke("destroyProjectile", 1f);
         }
     }
 
