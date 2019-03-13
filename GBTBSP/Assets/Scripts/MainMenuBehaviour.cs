@@ -48,6 +48,6 @@ public class MainMenuBehaviour : MonoBehaviour
 
     void startGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
