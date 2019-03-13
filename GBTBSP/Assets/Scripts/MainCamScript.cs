@@ -27,7 +27,7 @@ public class MainCamScript : MonoBehaviour
             { 
                 posCount += 1;
             }
-            else if (posCount == 3)
+            else if (posCount == 4)
             {
                 posCount = 1;
             }
