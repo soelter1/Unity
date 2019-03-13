@@ -26,6 +26,7 @@ public class GameState : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown("t")) turnClick();
+        if (Input.GetKeyDown("escape")) menuClick();
     }
 
     private void Start()
