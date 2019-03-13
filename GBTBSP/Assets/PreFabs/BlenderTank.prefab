@@ -247,7 +247,7 @@ Transform:
   m_GameObject: {fileID: 472667636247155137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 7580521735436383904}
   - {fileID: 3360374081793578056}
@@ -287,18 +287,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isKing: {fileID: 0}
-  cursor: {fileID: 0}
   isInf: {fileID: 0}
   lethalProjectile: {fileID: 6380448145735919435}
   nonLethalProjectile: {fileID: 862025501528906395}
   moveSound: {fileID: 0}
   attackSound: {fileID: 0}
   unitName: Tank
-  unitDescr: 
+  unitDescr: slow, higher reach, higher damage, high amor
   movementRange: 2
-  attackRange: 2
-  atk: 2
-  hp: 2
+  attackRange: 4
+  atk: 4
+  hp: 4
   player: 0
   hasMoved: 0
   hasAttacked: 0

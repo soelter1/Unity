@@ -21,7 +21,7 @@ public class MoveAbleObject : MonoBehaviour
     public string unitName = "";
     public string unitDescr = "";
     public int movementRange = 0;
-    public int attackRange = 0;
+    
     public int atk = 0;
     public int hp = 1;
     public int player;
@@ -35,6 +35,8 @@ public class MoveAbleObject : MonoBehaviour
     public Vector3 globalForward;
 
     public Vector3 eulerAngles;
+
+    public int attackRange = 0;
 
     void Start()
     {

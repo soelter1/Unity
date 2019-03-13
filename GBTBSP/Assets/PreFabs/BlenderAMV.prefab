@@ -877,7 +877,7 @@ Transform:
   m_GameObject: {fileID: 6453038476536045559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 1437362399937714670}
   - {fileID: 7462304751048334097}
@@ -928,17 +928,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isKing: {fileID: 0}
-  cursor: {fileID: 0}
   isInf: {fileID: 0}
   lethalProjectile: {fileID: 3836677391780838355}
   nonLethalProjectile: {fileID: 3180090323314197241}
   moveSound: {fileID: 0}
   attackSound: {fileID: 0}
-  unitName: AMV
-  unitDescr: 
-  movementRange: 2
-  attackRange: 2
-  atk: 2
+  unitName: AMV (Armored Modular Vehicle)
+  unitDescr: fast, low reach, low damage, low amor
+  movementRange: 3
+  attackRange: 3
+  atk: 3
   hp: 2
   player: 0
   hasMoved: 0

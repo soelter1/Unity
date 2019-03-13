@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 50fde515fd9d065488fa231f36b801bb
+guid: 3beb9d7cdc46ae34489715dce739bcb5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -35,13 +35,13 @@ ModelImporter:
     3300008: Cube_004
     3300010: Cylinder
     3300012: Sphere
-    4300000: Sphere
-    4300002: Cube
-    4300004: Cylinder
-    4300006: Cube_001
-    4300008: Cube_002
-    4300010: Cube_004
-    4300012: Cube_003
+    4300000: Cube_003
+    4300002: Cube_001
+    4300004: Cube_004
+    4300006: Cube_002
+    4300008: Sphere
+    4300010: Cube
+    4300012: Cylinder
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
