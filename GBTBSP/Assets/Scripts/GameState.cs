@@ -8,6 +8,7 @@ public class GameState : MonoBehaviour
 {
     public Cursor cursor;
     public AudioSource buttonpress;
+    public AudioSource Music;
     public GameObject[] moveAbleObjects;
 
     public GameObject turnPopUp;
@@ -21,6 +22,11 @@ public class GameState : MonoBehaviour
 
     public int gameTurn = 1;
     public int playerTurn = 1;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("t")) turnClick();
+    }
 
     private void Start()
     {
@@ -94,6 +100,12 @@ public class GameState : MonoBehaviour
     {
         buttonpress.Play();
         SceneManager.LoadScene("SampleGameScene");
+    }
+
+    public void musicToggle()
+    {
+        if (Music.isPlaying) Music.Pause();
+        else Music.Play();
     }
     
     void PopUpControl()

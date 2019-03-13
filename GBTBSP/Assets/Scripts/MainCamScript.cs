@@ -17,8 +17,8 @@ public class MainCamScript : MonoBehaviour
     public Vector3 p2Pkt2;
     public Vector3 p2Rot2;
 
-    Vector3 Rot3 = new Vector3(90, 0, 0);
-
+    Vector3 p1Rot3 = new Vector3(90, 0, 0);
+    Vector3 p2Rot3 = new Vector3(90, 180, 0);
 
     private void Update()
     {
@@ -64,10 +64,15 @@ public class MainCamScript : MonoBehaviour
             transform.position = cursor.position + new Vector3(p1Pkt1.x, 40, -p1Pkt1.z);
             transform.rotation = Quaternion.Euler(p2Rot1);
         }
-        if(posCount == 4)
+        if(posCount == 4 && gameState.playerTurn == 1)
         {
             transform.position = cursor.position + new Vector3(0, 50, 0);
-            transform.rotation = Quaternion.Euler(Rot3);
+            transform.rotation = Quaternion.Euler(p1Rot3);
+        }
+        if (posCount == 4 && gameState.playerTurn == 2)
+        {
+            transform.position = cursor.position + new Vector3(0, 50, 0);
+            transform.rotation = Quaternion.Euler(p2Rot3);
         }
     }
 }
