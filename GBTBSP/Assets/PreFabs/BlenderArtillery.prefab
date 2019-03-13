@@ -653,9 +653,12 @@ MonoBehaviour:
   attackRange: 3
   atk: 3
   hp: 2
-  player: 0
+  player: 1
   hasMoved: 0
   hasAttacked: 0
+  localForward: {x: 1, y: 0, z: 0}
+  globalForward: {x: 0, y: 0, z: 0}
+  eulerAngles: {x: 0, y: -90, z: 0}
   boxcol: {fileID: 921898772072292413}
 --- !u!65 &921898772072292413
 BoxCollider:

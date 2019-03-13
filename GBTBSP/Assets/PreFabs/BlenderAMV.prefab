@@ -943,6 +943,9 @@ MonoBehaviour:
   player: 0
   hasMoved: 0
   hasAttacked: 0
+  localForward: {x: 0, y: 0, z: 1}
+  globalForward: {x: 0, y: 0, z: 0}
+  eulerAngles: {x: 0, y: 0, z: 0}
   boxcol: {fileID: 2127968814045620189}
 --- !u!65 &2127968814045620189
 BoxCollider:

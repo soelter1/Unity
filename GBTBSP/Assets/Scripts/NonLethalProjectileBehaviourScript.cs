@@ -16,10 +16,11 @@ public class NonLethalProjectileBehaviourScript : MonoBehaviour
         Vector3 barrelPos = Barrel.transform.position;
 
             Debug.Log("nonlethal fire player1");
-            Quaternion q = Quaternion.Euler(transform.eulerAngles - GetComponent<MoveAbleObject>().eulerAngles);
-            Debug.Log(transform.gameObject+":"+ q);
-            GameObject projectile = Instantiate(Projectil, new Vector3(barrelPos.x, barrelPos.y, barrelPos.z), q);      //Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z))
-            projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward* projectileSpeed, ForceMode.Impulse);
+            GameObject projectile = Instantiate(Projectil, new Vector3(barrelPos.x, barrelPos.y, barrelPos.z),Quaternion.identity);      //Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z))
+            Vector3 forward = GetComponent<MoveAbleObject>().globalForward;
+            projectile.transform.LookAt(projectile.transform.position+forward, Vector3.up);
+            //projectile.transform.Rotate(90, 0, 0);
+            projectile.GetComponent<Rigidbody>().AddForce(forward * projectileSpeed, ForceMode.Impulse);
             Destroy(projectile, projectileLife);
     }
 }

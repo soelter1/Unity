@@ -28,6 +28,11 @@ public class MoveAbleObject : MonoBehaviour
     public bool hasMoved = false;
     public bool hasAttacked = false;
 
+    public Vector3 localForward;
+
+    [HideInInspector]
+    public Vector3 globalForward;
+
     public Vector3 eulerAngles;
 
     void Start()
@@ -69,15 +74,18 @@ public class MoveAbleObject : MonoBehaviour
 
     public void Attack(MoveAbleObject target)
     {
-        eulerAngles = transform.rotation.eulerAngles;
         Vector3 targetEulerAngles = target.GetComponent<Transform>().transform.eulerAngles;
 
         if (posInRange(target.transform.position, atk) && !hasAttacked && target.player != player) {
             if (attackSound != null) attackSound.Play();
             Debug.Log(name + " :pewpewpew");
 
-            gameObject.transform.LookAt(target.transform.position);
-            gameObject.transform.Rotate(eulerAngles);
+            //Vector3 test = new Vector3(-target.transform.position.x, 0, -target.transform.position.z);
+
+            gameObject.transform.LookAt(target.transform.position+globalForward);
+            gameObject.transform.rotation *= Quaternion.Euler(eulerAngles);
+            globalForward = transform.rotation * localForward;
+            //gameObject.transform.LookAt(test);
 
             if (target.hp - 1 <= 0)
             {
@@ -107,6 +115,7 @@ public class MoveAbleObject : MonoBehaviour
 
     void Update()
     {
+        globalForward = transform.rotation * localForward;
         if (targetPos == transform.position) { moving = false; boxcol.isTrigger = false; }
         if (moving&& (targetPos.x != transform.position.x))
         {
@@ -118,5 +127,12 @@ public class MoveAbleObject : MonoBehaviour
             float newZ = Mathf.MoveTowards(transform.position.z, targetPos.z, movementRange);
             transform.position = new Vector3(transform.position.x, transform.position.y, newZ);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Vector3 lookDir = globalForward * 4;
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(transform.position, transform.position + lookDir);
     }
 }
