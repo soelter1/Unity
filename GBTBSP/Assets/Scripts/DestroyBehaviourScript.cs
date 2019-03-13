@@ -6,7 +6,7 @@ public class DestroyBehaviourScript : MonoBehaviour
 {
 
     public float radius = 5.0f;
-    public float force = 10.0f;
+    public float force = 5.0f;
 
     private GameObject projectile;
 
@@ -42,6 +42,7 @@ public class DestroyBehaviourScript : MonoBehaviour
         {
             other.attachedRigidbody.velocity = Vector3.zero;
             other.attachedRigidbody.angularVelocity = Vector3.zero;
+            //other.attachedRigidbody.useGravity = true;
             other.attachedRigidbody.AddExplosionForce(force, transform.position, radius, 0.5f, ForceMode.Impulse);
             Invoke("destroyProjectile", 1f);
         }

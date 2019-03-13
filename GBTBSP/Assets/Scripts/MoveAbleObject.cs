@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using System;
+
 
 public class MoveAbleObject : MonoBehaviour
 {
     public KingScript isKing = null;
     public Cursor cursor;
     public InfantryScript isInf = null;
-
-    //public DestroyBehaviourScript destroyBehaviourScript;
+    
     public LethalProjectileBehaviourScript lethalProjectile;
     public NonLethalProjectileBehaviourScript nonLethalProjectile;
 
@@ -26,6 +27,8 @@ public class MoveAbleObject : MonoBehaviour
 
     public bool hasMoved = false;
     public bool hasAttacked = false;
+
+    public Vector3 eulerAngles;
 
     void Start()
     {
@@ -66,9 +69,15 @@ public class MoveAbleObject : MonoBehaviour
 
     public void Attack(MoveAbleObject target)
     {
+        eulerAngles = transform.rotation.eulerAngles;
+        Vector3 targetEulerAngles = target.GetComponent<Transform>().transform.eulerAngles;
+
         if (posInRange(target.transform.position, atk) && !hasAttacked && target.player != player) {
             if (attackSound != null) attackSound.Play();
             Debug.Log(name + " :pewpewpew");
+
+            gameObject.transform.LookAt(target.transform.position);
+            gameObject.transform.Rotate(eulerAngles);
 
             if (target.hp - 1 <= 0)
             {
