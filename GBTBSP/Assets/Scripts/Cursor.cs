@@ -109,7 +109,7 @@ public class Cursor : MonoBehaviour
         }                              
         if (Input.GetKeyDown(controls[5]) && onObject.player == gameState.playerTurn)
         {   //SELECT
-            if (onTarget)
+            if (onTarget && selectedTarget!=onObject)
             {
                 selectTarget();
             }
