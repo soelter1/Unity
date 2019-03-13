@@ -936,7 +936,6 @@ MonoBehaviour:
   unitName: AMV (Armored Modular Vehicle)
   unitDescr: fast, low reach, low damage, low amor
   movementRange: 3
-  attackRange: 3
   atk: 3
   hp: 2
   player: 0
@@ -945,6 +944,7 @@ MonoBehaviour:
   localForward: {x: 0, y: 0, z: 1}
   globalForward: {x: 0, y: 0, z: 0}
   eulerAngles: {x: 0, y: 0, z: 0}
+  attackRange: 3
   boxcol: {fileID: 2127968814045620189}
 --- !u!65 &2127968814045620189
 BoxCollider:
@@ -985,7 +985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8b54321e841db4e907696b6786e319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 20
+  projectileSpeed: 30
   projectileLife: 20
   Barrel: {fileID: 1642027801526578687}
   Projectil: {fileID: 0}
@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431746b2070ee9546a76579748f04ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 20
+  projectileSpeed: 30
   projectileLife: 20
   Barrel: {fileID: 1642027801526578687}
   Projectil: {fileID: 0}

@@ -295,7 +295,6 @@ MonoBehaviour:
   unitName: Tank
   unitDescr: slow, higher reach, higher damage, high amor
   movementRange: 2
-  attackRange: 4
   atk: 4
   hp: 4
   player: 0
@@ -304,6 +303,7 @@ MonoBehaviour:
   localForward: {x: -1, y: 0, z: 0}
   globalForward: {x: 0, y: 0, z: 0}
   eulerAngles: {x: 0, y: 90, z: 0}
+  attackRange: 4
   boxcol: {fileID: 7011341510967623700}
 --- !u!65 &7011341510967623700
 BoxCollider:
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8b54321e841db4e907696b6786e319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 20
+  projectileSpeed: 30
   projectileLife: 20
   Barrel: {fileID: 6471045994024342933}
   Projectil: {fileID: 0}
@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431746b2070ee9546a76579748f04ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 20
+  projectileSpeed: 30
   projectileLife: 20
   Barrel: {fileID: 6471045994024342933}
   Projectil: {fileID: 0}

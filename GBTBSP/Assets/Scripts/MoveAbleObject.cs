@@ -84,12 +84,12 @@ public class MoveAbleObject : MonoBehaviour
             if (attackSound != null) attackSound.Play();
             Debug.Log(name + " :pewpewpew");
 
-            //Vector3 test = new Vector3(-target.transform.position.x, 0, -target.transform.position.z);
+            //Vector3 test = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z);
 
             gameObject.transform.LookAt(target.transform.position+globalForward);
+            //gameObject.transform.LookAt(test+globalForward);
             gameObject.transform.rotation *= Quaternion.Euler(eulerAngles);
             globalForward = transform.rotation * localForward;
-            //gameObject.transform.LookAt(test);
 
             if (target.hp - 1 <= 0)
             {

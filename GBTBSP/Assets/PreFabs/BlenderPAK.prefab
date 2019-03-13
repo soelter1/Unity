@@ -555,7 +555,6 @@ MonoBehaviour:
   unitName: ATG (Anti Tank Gun)
   unitDescr: super slow, high reach, high damage, low amor
   movementRange: 1
-  attackRange: 0
   atk: 5
   hp: 2
   player: 0
@@ -564,6 +563,7 @@ MonoBehaviour:
   localForward: {x: 1, y: 0, z: 0}
   globalForward: {x: 0, y: 0, z: 0}
   eulerAngles: {x: 0, y: -90, z: 0}
+  attackRange: 0
   boxcol: {fileID: 626345833959586064}
 --- !u!65 &626345833959586064
 BoxCollider:
@@ -604,7 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8b54321e841db4e907696b6786e319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 10
+  projectileSpeed: 30
   projectileLife: 20
   Barrel: {fileID: 341302642728021403}
   Projectil: {fileID: 0}
@@ -620,7 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431746b2070ee9546a76579748f04ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 10
+  projectileSpeed: 30
   projectileLife: 20
   Barrel: {fileID: 341302642728021403}
   Projectil: {fileID: 0}

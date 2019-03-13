@@ -101,8 +101,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3679799, y: 5.895612, z: 2.5360236}
-  m_Center: {x: -0.18398994, y: 2.447806, z: 0.14013672}
+  m_Size: {x: 2.1754732, y: 5.895612, z: 2.7418506}
+  m_Center: {x: -0.39911562, y: 2.4478056, z: 0.0372234}
 --- !u!114 &2037560192623665231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8b54321e841db4e907696b6786e319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 20
+  projectileSpeed: 30
   projectileLife: 20
   Barrel: {fileID: 8742384610511266926}
   Projectil: {fileID: 0}
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431746b2070ee9546a76579748f04ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 20
+  projectileSpeed: 30
   projectileLife: 20
   Barrel: {fileID: 8742384610511266926}
   Projectil: {fileID: 0}

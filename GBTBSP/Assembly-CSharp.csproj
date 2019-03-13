@@ -71,6 +71,8 @@
     <Compile Include="Assets\Scripts\InfantryScript.cs" />
     <Compile Include="Assets\Scripts\KingScript.cs" />
     <Compile Include="Assets\Scripts\LethalProjectileBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\loadingbar.cs" />
+    <Compile Include="Assets\Scripts\LoadingScreen.cs" />
     <Compile Include="Assets\Scripts\MainCamScript.cs" />
     <Compile Include="Assets\Scripts\MainMenuBehaviour.cs" />
     <Compile Include="Assets\Scripts\MoveAbleObject.cs" />
@@ -287,9 +289,6 @@
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="Vuforia.UnityExtensions">
-      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.GoogleAudioSpatializer">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>

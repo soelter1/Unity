@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3540864110704785311}
   m_Layer: 9
   m_Name: ProjectilPlayer2
-  m_TagString: LethalProjectile
+  m_TagString: NonLethalProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8dfec2fd1e36a8140b7e6daf2a168c44, type: 2}
+  - {fileID: 2100000, guid: 451b8e00c6e9e374892894583a71a99c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -93,7 +93,7 @@ public class GameState : MonoBehaviour
     public void restartButtonClick()
     {
         buttonpress.Play();
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("SampleGameScene");
     }
     
     void PopUpControl()
