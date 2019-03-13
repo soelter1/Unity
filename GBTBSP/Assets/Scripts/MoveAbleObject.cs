@@ -7,8 +7,9 @@ using System;
 
 public class MoveAbleObject : MonoBehaviour
 {
+    private Cursor cursor;
+
     public KingScript isKing = null;
-    public Cursor cursor;
     public InfantryScript isInf = null;
     
     public LethalProjectileBehaviourScript lethalProjectile;
@@ -38,6 +39,7 @@ public class MoveAbleObject : MonoBehaviour
     void Start()
     {
         attackRange = movementRange + atk;
+        cursor = GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursor>();
     }
 
     private void OnTriggerEnter(Collider other)
