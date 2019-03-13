@@ -17,11 +17,13 @@ public class MainCamScript : MonoBehaviour
     public Vector3 p2Pkt2;
     public Vector3 p2Rot2;
 
+    Vector3 Rot3 = new Vector3(90, 0, 0);
+
 
     private void Update()
     {
         if(Input.GetKeyUp("c")){
-            if (posCount < 3)
+            if (posCount < 4)
             { 
                 posCount += 1;
             }
@@ -61,6 +63,11 @@ public class MainCamScript : MonoBehaviour
         {
             transform.position = cursor.position + new Vector3(p1Pkt1.x, 40, -p1Pkt1.z);
             transform.rotation = Quaternion.Euler(p2Rot1);
+        }
+        if(posCount == 4)
+        {
+            transform.position = cursor.position + new Vector3(0, 50, 0);
+            transform.rotation = Quaternion.Euler(Rot3);
         }
     }
 }
