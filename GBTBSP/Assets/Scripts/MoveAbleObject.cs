@@ -7,7 +7,6 @@ using System;
 
 public class MoveAbleObject : MonoBehaviour
 {
-    private Cursor cursor;
 
     public KingScript isKing = null;
     public InfantryScript isInf = null;
@@ -37,6 +36,8 @@ public class MoveAbleObject : MonoBehaviour
     public Vector3 eulerAngles;
 
     public int attackRange = 0;
+
+    public Cursor cursor;
 
     void Start()
     {
@@ -100,19 +101,19 @@ public class MoveAbleObject : MonoBehaviour
                 nonLethalProjectile.enabled = true;
             }
 
-            target.getsDamaged(this);
+            //target.getsDamaged(this);
             hasAttacked = true;
         }
         if(isInf != null && target == this) { Debug.Log("Im Inf!");  }
     }
 
-    void getsDamaged(MoveAbleObject attacker)
+    public void getsDamaged(int player)
     {
         Debug.Log(name + " :I got hit!");
         hp -= 1;
         if(hp <= 0)
         {
-            if (isKing != null) isKing.theKingIsDeadLongLiveTheKing(attacker.player);
+            if (isKing != null) isKing.theKingIsDeadLongLiveTheKing(player);
             //destruction x seconds after projectile impact in DestroyBehaviourScript
         }
     }
