@@ -10,10 +10,12 @@ public class DestroyBehaviourScript : MonoBehaviour
 
     private GameObject projectile;
 
+    public Cursor cursor;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        cursor = GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursor>();
     }
 
     private void destroyProjectile()
@@ -21,25 +23,47 @@ public class DestroyBehaviourScript : MonoBehaviour
         Destroy(projectile);
     }
 
+    int GetPlayer(GameObject projectile)
+    {
+        Debug.Log(projectile.layer);
+
+        if (projectile.layer == 8) return 1;
+        else if (projectile.layer == 9) return 2;
+        else return 0;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
+        projectile = other.gameObject;
+
+        if (other.gameObject.tag == "NonLethalProjectile" && this.gameObject.GetComponent<MoveAbleObject>().hp - 1 <= 0)
+        {
+            projectile.tag = "LethalProjectile";
+
+            Debug.Log("ich werde ausgefuehrt");
+        }
+
         if (other.gameObject.tag == "LethalProjectile")
         {
             Debug.Log("triggered by " + other.name);
-            projectile = other.gameObject;
             Rigidbody[] colliders = gameObject.GetComponentsInChildren<Rigidbody>();
+
+            this.gameObject.GetComponent<MoveAbleObject>().getsDamaged(GetPlayer(projectile));
 
             foreach (Rigidbody c in colliders)
             {
                 c.isKinematic = false;
                 c.AddExplosionForce(force, transform.position, radius, 0.5f, ForceMode.Impulse);
             }
+
             Invoke("destroyProjectile", 0.1f);
             Destroy(this.gameObject, 1.5f);
         }
 
         if (other.gameObject.tag == "NonLethalProjectile")
         {
+            this.gameObject.GetComponent<MoveAbleObject>().getsDamaged(GetPlayer(projectile));
+
             other.attachedRigidbody.velocity = Vector3.zero;
             other.attachedRigidbody.angularVelocity = Vector3.zero;
             //other.attachedRigidbody.useGravity = true;

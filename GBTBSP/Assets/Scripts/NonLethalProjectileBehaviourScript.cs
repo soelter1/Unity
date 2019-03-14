@@ -15,7 +15,7 @@ public class NonLethalProjectileBehaviourScript : MonoBehaviour
 
         Vector3 barrelPos = Barrel.transform.position;
 
-            Debug.Log("nonlethal fire player1");
+            Debug.Log("nonlethal fire");
             GameObject projectile = Instantiate(Projectil, new Vector3(barrelPos.x, barrelPos.y, barrelPos.z),Quaternion.identity);      //Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z))
             Vector3 forward = GetComponent<MoveAbleObject>().globalForward;
             projectile.transform.LookAt(projectile.transform.position+forward, Vector3.up);

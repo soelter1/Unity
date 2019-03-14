@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3540864110704785311}
   m_Layer: 9
   m_Name: ProjectilPlayer2
-  m_TagString: NonLethalProjectile
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

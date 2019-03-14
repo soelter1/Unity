@@ -122,7 +122,7 @@ PrefabInstance:
     - target: {fileID: 472667636247155137, guid: 2b93c86401198bb43839e201183cef1d,
         type: 3}
       propertyPath: m_Name
-      value: BlenderTank (1)
+      value: Player2_BlenderTank (1)
       objectReference: {fileID: 0}
     - target: {fileID: 472667636247155137, guid: 2b93c86401198bb43839e201183cef1d,
         type: 3}
@@ -530,7 +530,7 @@ PrefabInstance:
     - target: {fileID: 6453038476536045559, guid: 3104d3b98e6549549997318c2efc3c42,
         type: 3}
       propertyPath: m_Name
-      value: BlenderAMV (2)
+      value: Player2_BlenderAMV (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6453038476536045559, guid: 3104d3b98e6549549997318c2efc3c42,
         type: 3}
@@ -794,7 +794,7 @@ PrefabInstance:
     - target: {fileID: 5977625906346537211, guid: 746519b72a2899744906df3b430284d8,
         type: 3}
       propertyPath: m_Name
-      value: BlenderPAK (1)
+      value: Player2_BlenderPAK (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5977625906346537211, guid: 746519b72a2899744906df3b430284d8,
         type: 3}
@@ -1453,7 +1453,7 @@ PrefabInstance:
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
       propertyPath: m_Name
-      value: BlenderInfantery (4)
+      value: Player1_BlenderInfantery (4)
       objectReference: {fileID: 0}
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
@@ -1721,7 +1721,7 @@ PrefabInstance:
     - target: {fileID: 5977625906346537211, guid: 746519b72a2899744906df3b430284d8,
         type: 3}
       propertyPath: m_Name
-      value: BlenderPAK (2)
+      value: Player1_BlenderPAK (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5977625906346537211, guid: 746519b72a2899744906df3b430284d8,
         type: 3}
@@ -1731,7 +1731,7 @@ PrefabInstance:
     - target: {fileID: 5759009520422834256, guid: 746519b72a2899744906df3b430284d8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 80
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5759009520422834256, guid: 746519b72a2899744906df3b430284d8,
         type: 3}
@@ -1741,7 +1741,7 @@ PrefabInstance:
     - target: {fileID: 5759009520422834256, guid: 746519b72a2899744906df3b430284d8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 40
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 5759009520422834256, guid: 746519b72a2899744906df3b430284d8,
         type: 3}
@@ -1987,7 +1987,7 @@ PrefabInstance:
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
       propertyPath: m_Name
-      value: BlenderInfantery (1)
+      value: Player1_BlenderInfantery (1)
       objectReference: {fileID: 0}
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
@@ -2255,7 +2255,7 @@ PrefabInstance:
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
       propertyPath: m_Name
-      value: BlenderInfantery (3)
+      value: Player1_BlenderInfantery (3)
       objectReference: {fileID: 0}
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
@@ -3034,7 +3034,7 @@ PrefabInstance:
     - target: {fileID: 472667636247155137, guid: 2b93c86401198bb43839e201183cef1d,
         type: 3}
       propertyPath: m_Name
-      value: BlenderTank (2)
+      value: Player1_BlenderTank (2)
       objectReference: {fileID: 0}
     - target: {fileID: 472667636247155137, guid: 2b93c86401198bb43839e201183cef1d,
         type: 3}
@@ -3447,7 +3447,7 @@ PrefabInstance:
     - target: {fileID: 6453038476536045559, guid: 3104d3b98e6549549997318c2efc3c42,
         type: 3}
       propertyPath: m_Name
-      value: BlenderAMV (2)
+      value: Player1_BlenderAMV (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6453038476536045559, guid: 3104d3b98e6549549997318c2efc3c42,
         type: 3}
@@ -4569,7 +4569,7 @@ PrefabInstance:
     - target: {fileID: 472667636247155137, guid: 2b93c86401198bb43839e201183cef1d,
         type: 3}
       propertyPath: m_Name
-      value: BlenderTank (1)
+      value: Player1_BlenderTank (1)
       objectReference: {fileID: 0}
     - target: {fileID: 472667636247155137, guid: 2b93c86401198bb43839e201183cef1d,
         type: 3}
@@ -5250,7 +5250,7 @@ PrefabInstance:
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
       propertyPath: m_Name
-      value: BlenderInfantery (4)
+      value: Player2_BlenderInfantery (4)
       objectReference: {fileID: 0}
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
@@ -5706,7 +5706,7 @@ PrefabInstance:
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
       propertyPath: m_Name
-      value: BlenderInfantery (2)
+      value: Player2_BlenderInfantery (2)
       objectReference: {fileID: 0}
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
@@ -6242,7 +6242,7 @@ PrefabInstance:
     - target: {fileID: 472667636247155137, guid: 2b93c86401198bb43839e201183cef1d,
         type: 3}
       propertyPath: m_Name
-      value: BlenderTank (2)
+      value: Player2_BlenderTank (2)
       objectReference: {fileID: 0}
     - target: {fileID: 472667636247155137, guid: 2b93c86401198bb43839e201183cef1d,
         type: 3}
@@ -7214,7 +7214,7 @@ PrefabInstance:
     - target: {fileID: 6458263705892325177, guid: 4a5eec006963c7e4eaaed7e68832285c,
         type: 3}
       propertyPath: gridsizeZ
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6458263705892325177, guid: 4a5eec006963c7e4eaaed7e68832285c,
         type: 3}
@@ -7224,7 +7224,7 @@ PrefabInstance:
     - target: {fileID: 6458263705892325177, guid: 4a5eec006963c7e4eaaed7e68832285c,
         type: 3}
       propertyPath: gridsizeX
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a5eec006963c7e4eaaed7e68832285c, type: 3}
@@ -7383,7 +7383,7 @@ PrefabInstance:
     - target: {fileID: 6453038476536045559, guid: 3104d3b98e6549549997318c2efc3c42,
         type: 3}
       propertyPath: m_Name
-      value: BlenderAMV (1)
+      value: Player2_BlenderAMV (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6453038476536045559, guid: 3104d3b98e6549549997318c2efc3c42,
         type: 3}
@@ -7647,7 +7647,7 @@ PrefabInstance:
     - target: {fileID: 6453038476536045559, guid: 3104d3b98e6549549997318c2efc3c42,
         type: 3}
       propertyPath: m_Name
-      value: BlenderAMV (1)
+      value: Player1_BlenderAMV (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6453038476536045559, guid: 3104d3b98e6549549997318c2efc3c42,
         type: 3}
@@ -8103,7 +8103,7 @@ PrefabInstance:
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
       propertyPath: m_Name
-      value: BlenderInfantery (1)
+      value: Player2_BlenderInfantery (1)
       objectReference: {fileID: 0}
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
@@ -8403,7 +8403,7 @@ PrefabInstance:
     - target: {fileID: 2335483480308687566, guid: a9af49930aa04704685ea72df8d5b08b,
         type: 3}
       propertyPath: m_Name
-      value: BlenderKing
+      value: Player1_BlenderKing
       objectReference: {fileID: 0}
     - target: {fileID: 2335483480308687566, guid: a9af49930aa04704685ea72df8d5b08b,
         type: 3}
@@ -8697,7 +8697,7 @@ PrefabInstance:
     - target: {fileID: 5977625906346537211, guid: 746519b72a2899744906df3b430284d8,
         type: 3}
       propertyPath: m_Name
-      value: BlenderPAK (1)
+      value: Player1_BlenderPAK (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5977625906346537211, guid: 746519b72a2899744906df3b430284d8,
         type: 3}
@@ -9025,7 +9025,7 @@ PrefabInstance:
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
       propertyPath: m_Name
-      value: BlenderInfantery (2)
+      value: Player1_BlenderInfantery (2)
       objectReference: {fileID: 0}
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
@@ -9372,7 +9372,7 @@ PrefabInstance:
     - target: {fileID: 2335483480308687566, guid: a9af49930aa04704685ea72df8d5b08b,
         type: 3}
       propertyPath: m_Name
-      value: BlenderKing
+      value: Player2_BlenderKing
       objectReference: {fileID: 0}
     - target: {fileID: 2335483480308687566, guid: a9af49930aa04704685ea72df8d5b08b,
         type: 3}
@@ -9618,7 +9618,7 @@ PrefabInstance:
     - target: {fileID: 5977625906346537211, guid: 746519b72a2899744906df3b430284d8,
         type: 3}
       propertyPath: m_Name
-      value: BlenderPAK (2)
+      value: Player2_BlenderPAK (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5977625906346537211, guid: 746519b72a2899744906df3b430284d8,
         type: 3}
@@ -9805,7 +9805,7 @@ PrefabInstance:
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
       propertyPath: m_Name
-      value: BlenderInfantery (3)
+      value: Player2_BlenderInfantery (3)
       objectReference: {fileID: 0}
     - target: {fileID: 49432270783772425, guid: 78f73fbd0d730df4e83b24441aebc9c5,
         type: 3}
