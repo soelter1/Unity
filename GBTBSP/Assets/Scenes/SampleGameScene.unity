@@ -1741,7 +1741,7 @@ PrefabInstance:
     - target: {fileID: 5759009520422834256, guid: 746519b72a2899744906df3b430284d8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 130
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5759009520422834256, guid: 746519b72a2899744906df3b430284d8,
         type: 3}
@@ -3804,6 +3804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursor: {fileID: 1710810649}
   buttonpress: {fileID: 574051554}
+  Music: {fileID: 0}
   moveAbleObjects: []
   turnPopUp: {fileID: 623228098}
   GameOverPopUp: {fileID: 1016711120}
