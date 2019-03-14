@@ -552,7 +552,8 @@ MonoBehaviour:
   nonLethalProjectile: {fileID: 7162498015736201018}
   moveSound: {fileID: 0}
   attackSound: {fileID: 0}
-  unitName: ATG (Anti Tank Gun)
+  explosionSound: {fileID: 0}
+  unitName: ATG
   unitDescr: super slow, high reach, high damage, low amor
   movementRange: 1
   atk: 5
@@ -564,6 +565,7 @@ MonoBehaviour:
   globalForward: {x: 0, y: 0, z: 0}
   eulerAngles: {x: 0, y: -90, z: 0}
   attackRange: 0
+  cursor: {fileID: 0}
   boxcol: {fileID: 626345833959586064}
 --- !u!65 &626345833959586064
 BoxCollider:
@@ -592,6 +594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 5
   force: 5
+  cursor: {fileID: 0}
 --- !u!114 &1131822081222682305
 MonoBehaviour:
   m_ObjectHideFlags: 0

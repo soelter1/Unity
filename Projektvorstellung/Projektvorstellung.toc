@@ -1,0 +1,7 @@
+\babel@toc {ngerman}{}
+\beamer@sectionintoc {1}{I}{2}{0}{1}
+\beamer@sectionintoc {2}{II}{4}{0}{2}
+\beamer@sectionintoc {3}{III}{6}{0}{3}
+\beamer@sectionintoc {4}{IV}{7}{0}{4}
+\beamer@sectionintoc {5}{V}{9}{0}{5}
+\beamer@sectionintoc {6}{VI}{11}{0}{6}

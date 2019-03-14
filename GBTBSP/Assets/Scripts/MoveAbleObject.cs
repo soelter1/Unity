@@ -16,6 +16,7 @@ public class MoveAbleObject : MonoBehaviour
 
     public AudioSource moveSound;
     public AudioSource attackSound;
+    public AudioSource explosionSound;
 
     public string unitName = "";
     public string unitDescr = "";

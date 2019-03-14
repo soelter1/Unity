@@ -39,8 +39,6 @@ public class DestroyBehaviourScript : MonoBehaviour
         if (other.gameObject.tag == "NonLethalProjectile" && this.gameObject.GetComponent<MoveAbleObject>().hp - 1 <= 0)
         {
             projectile.tag = "LethalProjectile";
-
-            Debug.Log("ich werde ausgefuehrt");
         }
 
         if (other.gameObject.tag == "LethalProjectile")
@@ -48,7 +46,13 @@ public class DestroyBehaviourScript : MonoBehaviour
             Debug.Log("triggered by " + other.name);
             Rigidbody[] colliders = gameObject.GetComponentsInChildren<Rigidbody>();
 
-            this.gameObject.GetComponent<MoveAbleObject>().getsDamaged(GetPlayer(projectile));
+            MoveAbleObject target = this.gameObject.GetComponent<MoveAbleObject>();
+
+            target.getsDamaged(GetPlayer(projectile));
+            target.explosionSound.Play();
+
+            if (target.explosionSound != null) target.explosionSound.Play();
+
 
             foreach (Rigidbody c in colliders)
             {

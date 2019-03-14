@@ -933,7 +933,8 @@ MonoBehaviour:
   nonLethalProjectile: {fileID: 3180090323314197241}
   moveSound: {fileID: 0}
   attackSound: {fileID: 0}
-  unitName: AMV (Armored Modular Vehicle)
+  explosionSound: {fileID: 0}
+  unitName: AMV
   unitDescr: fast, low reach, low damage, low amor
   movementRange: 3
   atk: 3
@@ -945,6 +946,7 @@ MonoBehaviour:
   globalForward: {x: 0, y: 0, z: 0}
   eulerAngles: {x: 0, y: 0, z: 0}
   attackRange: 3
+  cursor: {fileID: 0}
   boxcol: {fileID: 2127968814045620189}
 --- !u!65 &2127968814045620189
 BoxCollider:
@@ -973,6 +975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 5
   force: 10
+  cursor: {fileID: 0}
 --- !u!114 &3836677391780838355
 MonoBehaviour:
   m_ObjectHideFlags: 0
