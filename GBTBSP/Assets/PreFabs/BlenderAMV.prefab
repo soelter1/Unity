@@ -861,6 +861,7 @@ GameObject:
   - component: {fileID: 1892233022827164556}
   - component: {fileID: 3836677391780838355}
   - component: {fileID: 3180090323314197241}
+  - component: {fileID: 8531002045337553106}
   m_Layer: 0
   m_Name: BlenderAMV
   m_TagString: MoveAbleObject
@@ -937,16 +938,17 @@ MonoBehaviour:
   unitName: AMV
   unitDescr: fast, low reach, low damage, low amor
   movementRange: 3
-  atk: 3
-  hp: 2
+  attackRange: 3
+  atk: 2
+  hp: 4
   player: 0
   hasMoved: 0
   hasAttacked: 0
   localForward: {x: 0, y: 0, z: 1}
   globalForward: {x: 0, y: 0, z: 0}
   eulerAngles: {x: 0, y: 0, z: 0}
-  attackRange: 3
   cursor: {fileID: 0}
+  moveAttackRange: 0
   boxcol: {fileID: 2127968814045620189}
 --- !u!65 &2127968814045620189
 BoxCollider:
@@ -990,7 +992,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 30
   projectileLife: 20
-  Barrel: {fileID: 1642027801526578687}
+  Barrels:
+  - {fileID: 1642027801526578687}
   Projectil: {fileID: 0}
 --- !u!114 &3180090323314197241
 MonoBehaviour:
@@ -1006,8 +1009,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 30
   projectileLife: 20
-  Barrel: {fileID: 1642027801526578687}
+  Barrels:
+  - {fileID: 1642027801526578687}
   Projectil: {fileID: 0}
+--- !u!114 &8531002045337553106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6453038476536045559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430d43ab7160b7a4fb8db449499f0c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!1 &6865413879138256037
 GameObject:
   m_ObjectHideFlags: 0

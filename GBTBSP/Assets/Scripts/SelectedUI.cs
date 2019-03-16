@@ -14,7 +14,7 @@ public class SelectedUI : MonoBehaviour
     public void UpdateTo(MoveAbleObject obj)
     {
         targetName.text = obj.unitName;
-        stats.UpdateTo(obj.atk, obj.movementRange, obj.hp, obj.unitName, obj.unitDescr);
+        stats.UpdateTo(obj.attackRange, obj.movementRange, obj.atk, obj.hp, obj.unitName, obj.unitDescr);
     }
 
     public void UpdateToNone()

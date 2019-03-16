@@ -485,6 +485,7 @@ GameObject:
   - component: {fileID: 8501382645692660815}
   - component: {fileID: 1131822081222682305}
   - component: {fileID: 7162498015736201018}
+  - component: {fileID: 7960694509743591091}
   m_Layer: 0
   m_Name: BlenderPAK
   m_TagString: MoveAbleObject
@@ -556,16 +557,17 @@ MonoBehaviour:
   unitName: ATG
   unitDescr: super slow, high reach, high damage, low amor
   movementRange: 1
-  atk: 5
-  hp: 2
+  attackRange: 6
+  atk: 2
+  hp: 4
   player: 0
   hasMoved: 0
   hasAttacked: 0
   localForward: {x: 1, y: 0, z: 0}
   globalForward: {x: 0, y: 0, z: 0}
   eulerAngles: {x: 0, y: -90, z: 0}
-  attackRange: 0
   cursor: {fileID: 0}
+  moveAttackRange: 0
   boxcol: {fileID: 626345833959586064}
 --- !u!65 &626345833959586064
 BoxCollider:
@@ -609,7 +611,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 30
   projectileLife: 20
-  Barrel: {fileID: 341302642728021403}
+  Barrels:
+  - {fileID: 341302642728021403}
   Projectil: {fileID: 0}
 --- !u!114 &7162498015736201018
 MonoBehaviour:
@@ -625,8 +628,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 30
   projectileLife: 20
-  Barrel: {fileID: 341302642728021403}
+  Barrels:
+  - {fileID: 341302642728021403}
   Projectil: {fileID: 0}
+--- !u!114 &7960694509743591091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5977625906346537211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430d43ab7160b7a4fb8db449499f0c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!1 &8376190059575838289
 GameObject:
   m_ObjectHideFlags: 0

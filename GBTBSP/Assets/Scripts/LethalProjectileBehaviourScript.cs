@@ -6,21 +6,26 @@ public class LethalProjectileBehaviourScript : MonoBehaviour
 {
     public float projectileSpeed = 10f;
     public float projectileLife = 20f;
-    public GameObject Barrel;
+    public GameObject[] Barrels;
     public GameObject Projectil;
 
     void OnEnable()
     {
-        Projectil.tag = "LethalProjectile";
+        MoveAbleObject moveAbleObject = this.gameObject.GetComponent<MoveAbleObject>();
 
-        Vector3 barrelPos = Barrel.transform.position;
+        foreach (GameObject barrel in Barrels)
+        {
+            Projectil.tag = "LethalProjectile";
 
-        Debug.Log("nonlethal fire");
-        GameObject projectile = Instantiate(Projectil, new Vector3(barrelPos.x, barrelPos.y, barrelPos.z), Quaternion.identity);      //Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z))
-        Vector3 forward = GetComponent<MoveAbleObject>().globalForward;
-        projectile.transform.LookAt(projectile.transform.position + forward, Vector3.up);
-        //projectile.transform.Rotate(90, 0, 0);
-        projectile.GetComponent<Rigidbody>().AddForce(forward * projectileSpeed, ForceMode.Impulse);
-        Destroy(projectile, projectileLife);
+            Vector3 barrelPos = barrel.transform.position;
+
+            Debug.Log("lethal fire");
+            GameObject projectile = Instantiate(Projectil, new Vector3(barrelPos.x, barrelPos.y, barrelPos.z), Quaternion.identity);      //Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z))
+            projectile.GetComponent<ProjectileBehaviourScript>().damage = moveAbleObject.atk;
+            Vector3 forward = moveAbleObject.globalForward;
+            projectile.transform.LookAt(projectile.transform.position + forward, Vector3.up);
+            projectile.GetComponent<Rigidbody>().AddForce(forward * projectileSpeed, ForceMode.Impulse);
+            Destroy(projectile, projectileLife);
+        }
     }
 }

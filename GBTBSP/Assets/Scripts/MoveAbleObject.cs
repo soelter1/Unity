@@ -21,8 +21,9 @@ public class MoveAbleObject : MonoBehaviour
     public string unitName = "";
     public string unitDescr = "";
     public int movementRange = 0;
-    
-    public int atk = 0;
+    public int attackRange = 0;
+
+    public int atk = 1;
     public int hp = 1;
     public int player;
 
@@ -36,13 +37,10 @@ public class MoveAbleObject : MonoBehaviour
 
     public Vector3 eulerAngles;
 
-    public int attackRange = 0;
-
     public Cursor cursor;
 
     void Start()
     {
-        attackRange = movementRange + atk;
         cursor = GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursor>();
     }
 
@@ -55,7 +53,7 @@ public class MoveAbleObject : MonoBehaviour
         }
     }
 
-    private bool posInRange(Vector3 target, int range)
+    private bool InRange(Vector3 target, int range)
     {
         return (  System.Math.Abs(transform.position.x - target.x) 
                 + System.Math.Abs(transform.position.z - target.z) <= range * 10);  //Manhattan Distance
@@ -67,7 +65,7 @@ public class MoveAbleObject : MonoBehaviour
 
     public void Move(float x, float z)
     {
-        if (posInRange(new Vector3(x, 0, z), movementRange) && !hasMoved)
+        if (InRange(new Vector3(x, 0, z), movementRange) && !hasMoved)
         {
             if(moveSound!=null) moveSound.Play();
             targetPos = new Vector3(x, transform.position.y, z);
@@ -80,9 +78,11 @@ public class MoveAbleObject : MonoBehaviour
 
     public void Attack(MoveAbleObject target)
     {
+        Debug.Log("attackRange " + attackRange);
+
         Vector3 targetEulerAngles = target.GetComponent<Transform>().transform.eulerAngles;
 
-        if (posInRange(target.transform.position, atk) && !hasAttacked && target.player != player) {
+        if (InRange(target.transform.position, attackRange) && !hasAttacked && target.player != player) {
             if (attackSound != null) attackSound.Play();
             Debug.Log(name + " :pewpewpew");
 
@@ -93,7 +93,7 @@ public class MoveAbleObject : MonoBehaviour
             gameObject.transform.rotation *= Quaternion.Euler(eulerAngles);
             globalForward = transform.rotation * localForward;
 
-            if (target.hp - 1 <= 0)
+            if (target.hp - atk <= 0)
             {
                 lethalProjectile.enabled = true;
             }
@@ -105,13 +105,13 @@ public class MoveAbleObject : MonoBehaviour
             //target.getsDamaged(this);
             hasAttacked = true;
         }
-        if(isInf != null && target == this) { Debug.Log("Im Inf!");  }
+        //if(isInf != null && target == this) { Debug.Log("Im Inf!");  }
     }
 
-    public void getsDamaged(int player)
+    public void getsDamaged(int player, int damage)
     {
         Debug.Log(name + " :I got hit!");
-        hp -= 1;
+        hp -= damage;
         if(hp <= 0)
         {
             if (isKing != null) isKing.theKingIsDeadLongLiveTheKing(player);

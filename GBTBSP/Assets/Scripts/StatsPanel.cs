@@ -9,10 +9,10 @@ public class StatsPanel : MonoBehaviour
     public Text Description;
     public Text statNumbers;
 
-    public void UpdateTo(int atk, int range, int hp, string name, string descr)
+    public void UpdateTo(int attackRange, int movementRange, int atk, int hp, string name, string descr)
     {
         UnitName.text = name;
         Description.text = descr;
-        statNumbers.text = (atk+"\n\n"+range+"\n\n"+hp);
+        statNumbers.text = (attackRange + "\n\n" + movementRange + "\n\n" + atk + "\n\n" + hp);
     }
 }

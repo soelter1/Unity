@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6946862297166878900}
   - component: {fileID: 6476337992723138610}
   - component: {fileID: 8960842075101434723}
-  - component: {fileID: 1431274885278275684}
   - component: {fileID: 5257733450657660389}
   m_Layer: 0
   m_Name: Cube_004
@@ -79,19 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1431274885278275684
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39392744152474972}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.000007, y: 23.06589, z: 36.00146}
-  m_Center: {x: 0.00000047720715, y: -0.0016803741, z: -0.0001077652}
 --- !u!54 &5257733450657660389
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -231,6 +217,7 @@ GameObject:
   - component: {fileID: 8601160194041467803}
   - component: {fileID: 6380448145735919435}
   - component: {fileID: 862025501528906395}
+  - component: {fileID: 3508062326928009654}
   m_Layer: 0
   m_Name: BlenderTank
   m_TagString: MoveAbleObject
@@ -247,7 +234,7 @@ Transform:
   m_GameObject: {fileID: 472667636247155137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1.1, y: 1.3, z: 1.1}
   m_Children:
   - {fileID: 7580521735436383904}
   - {fileID: 3360374081793578056}
@@ -292,19 +279,21 @@ MonoBehaviour:
   nonLethalProjectile: {fileID: 862025501528906395}
   moveSound: {fileID: 0}
   attackSound: {fileID: 0}
+  explosionSound: {fileID: 0}
   unitName: Tank
   unitDescr: slow, higher reach, higher damage, high amor
   movementRange: 2
-  atk: 4
-  hp: 4
+  attackRange: 3
+  atk: 2
+  hp: 8
   player: 0
   hasMoved: 0
   hasAttacked: 0
   localForward: {x: -1, y: 0, z: 0}
   globalForward: {x: 0, y: 0, z: 0}
   eulerAngles: {x: 0, y: 90, z: 0}
-  attackRange: 4
   cursor: {fileID: 0}
+  moveAttackRange: 0
   boxcol: {fileID: 7011341510967623700}
 --- !u!65 &7011341510967623700
 BoxCollider:
@@ -317,8 +306,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.9497824, y: 2.2650375, z: 4.628426}
-  m_Center: {x: -0.57921696, y: 1.0534954, z: 0.21240163}
+  m_Size: {x: 6.949782, y: 2.2650375, z: 4.4354506}
+  m_Center: {x: -0.57921666, y: 1.0534954, z: -0.016710216}
 --- !u!114 &8601160194041467803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,7 +337,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 30
   projectileLife: 20
-  Barrel: {fileID: 6471045994024342933}
+  Barrels:
+  - {fileID: 6471045994024342933}
   Projectil: {fileID: 0}
 --- !u!114 &862025501528906395
 MonoBehaviour:
@@ -364,8 +354,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 30
   projectileLife: 20
-  Barrel: {fileID: 6471045994024342933}
+  Barrels:
+  - {fileID: 6471045994024342933}
   Projectil: {fileID: 0}
+--- !u!114 &3508062326928009654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472667636247155137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430d43ab7160b7a4fb8db449499f0c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!1 &1888811462914802598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,7 +2551,6 @@ GameObject:
   - component: {fileID: 5138951240684921788}
   - component: {fileID: 7032405670353834354}
   - component: {fileID: 7438472085295911851}
-  - component: {fileID: 6323097031123260051}
   - component: {fileID: 8591288197314103005}
   m_Layer: 0
   m_Name: Cube_000
@@ -2615,19 +2618,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6323097031123260051
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6918196892068259907}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.000012, y: 23.089733, z: 36.00312}
-  m_Center: {x: 0.0000035213852, y: 8.911677, z: -0.00011062622}
 --- !u!54 &8591288197314103005
 Rigidbody:
   m_ObjectHideFlags: 0

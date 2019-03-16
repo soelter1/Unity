@@ -36,19 +36,30 @@ public class DestroyBehaviourScript : MonoBehaviour
     {
         projectile = other.gameObject;
 
-        if (other.gameObject.tag == "NonLethalProjectile" && this.gameObject.GetComponent<MoveAbleObject>().hp - 1 <= 0)
+        if (other.gameObject.tag == "NonLethalProjectile")
         {
-            projectile.tag = "LethalProjectile";
+            int projectileDamage = projectile.GetComponent<ProjectileBehaviourScript>().damage;
+
+            if(this.gameObject.GetComponent<MoveAbleObject>().hp - projectileDamage <= 0)
+            {
+                Debug.Log("my projectiles damage is " + projectileDamage);
+
+                projectile.tag = "LethalProjectile";
+            }
         }
 
         if (other.gameObject.tag == "LethalProjectile")
         {
+            int projectileDamage = projectile.GetComponent<ProjectileBehaviourScript>().damage;
+
+            Debug.Log("my projectiles damage is " + projectileDamage);
+
             Debug.Log("triggered by " + other.name);
             Rigidbody[] colliders = gameObject.GetComponentsInChildren<Rigidbody>();
 
             MoveAbleObject target = this.gameObject.GetComponent<MoveAbleObject>();
 
-            target.getsDamaged(GetPlayer(projectile));
+            target.getsDamaged(GetPlayer(projectile), projectileDamage);
             target.explosionSound.Play();
 
             if (target.explosionSound != null) target.explosionSound.Play();
@@ -66,7 +77,11 @@ public class DestroyBehaviourScript : MonoBehaviour
 
         if (other.gameObject.tag == "NonLethalProjectile")
         {
-            this.gameObject.GetComponent<MoveAbleObject>().getsDamaged(GetPlayer(projectile));
+            int projectileDamage = projectile.GetComponent<ProjectileBehaviourScript>().damage;
+
+            Debug.Log("my projectiles damage is " + projectileDamage);
+
+            this.gameObject.GetComponent<MoveAbleObject>().getsDamaged(GetPlayer(projectile), projectileDamage);
 
             other.attachedRigidbody.velocity = Vector3.zero;
             other.attachedRigidbody.angularVelocity = Vector3.zero;

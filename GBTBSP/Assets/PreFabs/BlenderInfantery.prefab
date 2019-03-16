@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8832421835093870238}
   - component: {fileID: 493468627119291715}
   - component: {fileID: 748426449957308761}
+  - component: {fileID: 7156212032937914774}
   m_Layer: 0
   m_Name: BlenderInfantery
   m_TagString: MoveAbleObject
@@ -79,18 +80,20 @@ MonoBehaviour:
   attackSound: {fileID: 0}
   explosionSound: {fileID: 0}
   unitName: Infantery
-  unitDescr: slow, low reach, low damage, low amor
-  movementRange: 2
-  atk: 2
-  hp: 2
+  unitDescr: slow, low reach, low damage, low amor (shoots 2 Projectiles, but watch
+    the angle)
+  movementRange: 1
+  attackRange: 2
+  atk: 1
+  hp: 4
   player: 1
   hasMoved: 0
   hasAttacked: 0
   localForward: {x: -1, y: 0, z: 0}
   globalForward: {x: 0, y: 0, z: 0}
   eulerAngles: {x: 0, y: 90, z: 0}
-  attackRange: 2
   cursor: {fileID: 0}
+  moveAttackRange: 0
   boxcol: {fileID: 3973120750688184411}
 --- !u!65 &3973120750688184411
 BoxCollider:
@@ -132,7 +135,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 30
   projectileLife: 20
-  Barrel: {fileID: 8742384610511266926}
+  Barrels:
+  - {fileID: 8742384610511266926}
+  - {fileID: 6041843570731937399}
   Projectil: {fileID: 0}
 --- !u!114 &493468627119291715
 MonoBehaviour:
@@ -163,8 +168,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 30
   projectileLife: 20
-  Barrel: {fileID: 8742384610511266926}
+  Barrels:
+  - {fileID: 8742384610511266926}
+  - {fileID: 6041843570731937399}
   Projectil: {fileID: 0}
+--- !u!114 &7156212032937914774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49432270783772425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430d43ab7160b7a4fb8db449499f0c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!1 &750141329026250914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,7 +1328,7 @@ GameObject:
   - component: {fileID: 8489154592480087587}
   - component: {fileID: 5375763953317521699}
   m_Layer: 0
-  m_Name: Infantery_Barrel
+  m_Name: Infantery_Barrel_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1321,13 +1341,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6041843570731937399}
-  m_LocalRotation: {x: -0, y: -0.7071067, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -1.3568773, y: -1.0342052, z: 0.40669343}
   m_LocalScale: {x: 0.16547284, y: 0.20684104, z: 1.5112414}
   m_Children: []
   m_Father: {fileID: 2397159682470005669}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
 --- !u!33 &8890463633665428319
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1592,7 +1612,7 @@ GameObject:
   - component: {fileID: 3614948317512710512}
   - component: {fileID: 3656233857725652051}
   m_Layer: 0
-  m_Name: Infantery_Barrel
+  m_Name: Infantery_Barrel_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

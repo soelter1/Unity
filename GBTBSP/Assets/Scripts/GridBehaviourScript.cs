@@ -9,12 +9,15 @@ public class GridBehaviourScript : MonoBehaviour
 
     public GameObject RangeFloorGrid;
     public GameObject AttackFloorGrid;
+    public GameObject ReachableAttackFloorGrid;
 
     public Vector3[] movementRangeArray;
     public Vector3[] attackRangeArray;
+    public Vector3[] reachableAttackRangeArray;
 
     int moveCounter = 0;
     int attackCounter = 0;
+    int reachableAttackCounter = 0;
 
     //calculates the ArraySize
     int ArraySize(int movementRange)
@@ -75,8 +78,8 @@ public class GridBehaviourScript : MonoBehaviour
 
     public void ShowAttackRange(MoveAbleObject obj, bool state)
     {
-        int attackRange = obj.attackRange;
-        if (obj.hasMoved) attackRange = obj.attackRange - obj.movementRange;
+        int attackRange = obj.attackRange + obj.movementRange;
+        if (obj.hasMoved) attackRange = obj.attackRange;
         int attackRangeArraySize = ArraySize(attackRange);
 
         floors = GetComponentsInChildren<FloorBehaviourScript>();   //Array mit floors

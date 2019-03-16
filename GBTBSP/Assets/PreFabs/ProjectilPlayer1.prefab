@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8785562685555433980}
   - component: {fileID: 815001066609991672}
   - component: {fileID: 3540864110704785311}
+  - component: {fileID: 4532668584976637993}
   m_Layer: 8
   m_Name: ProjectilPlayer1
   m_TagString: NonLethalProjectile
@@ -128,3 +129,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 10.172562}
   m_Center: {x: 0, y: 0, z: 1.400698}
+--- !u!114 &4532668584976637993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6794156031327993146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430d43ab7160b7a4fb8db449499f0c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0

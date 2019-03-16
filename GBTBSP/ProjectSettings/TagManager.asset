@@ -15,6 +15,7 @@ TagManager:
   - NonLethalProjectile
   - Projectile
   - LethalProjectile
+  - ReachableAttackFloorGrid
   layers:
   - Default
   - TransparentFX
