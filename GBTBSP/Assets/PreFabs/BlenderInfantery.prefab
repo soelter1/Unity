@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 49432270783772425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 2397159682470005669}
   - {fileID: 1475354537661574165}
@@ -77,6 +77,7 @@ MonoBehaviour:
   nonLethalProjectile: {fileID: 748426449957308761}
   moveSound: {fileID: 0}
   attackSound: {fileID: 0}
+  explosionSound: {fileID: 0}
   unitName: Infantery
   unitDescr: slow, low reach, low damage, low amor
   movementRange: 2
@@ -89,6 +90,7 @@ MonoBehaviour:
   globalForward: {x: 0, y: 0, z: 0}
   eulerAngles: {x: 0, y: 90, z: 0}
   attackRange: 2
+  cursor: {fileID: 0}
   boxcol: {fileID: 3973120750688184411}
 --- !u!65 &3973120750688184411
 BoxCollider:
@@ -101,8 +103,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.1754732, y: 5.895612, z: 2.7418506}
-  m_Center: {x: -0.39911562, y: 2.4478056, z: 0.0372234}
+  m_Size: {x: 3.0619764, y: 6.179717, z: 2.7418509}
+  m_Center: {x: -0.4852649, y: 2.5898583, z: 0.0372234}
 --- !u!114 &2037560192623665231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 5
   force: 10
+  cursor: {fileID: 0}
 --- !u!114 &748426449957308761
 MonoBehaviour:
   m_ObjectHideFlags: 0

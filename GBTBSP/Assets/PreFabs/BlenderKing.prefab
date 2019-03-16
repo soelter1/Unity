@@ -457,6 +457,7 @@ MonoBehaviour:
   nonLethalProjectile: {fileID: 0}
   moveSound: {fileID: 0}
   attackSound: {fileID: 0}
+  explosionSound: {fileID: 0}
   unitName: King
   unitDescr: Essential Unit. Squishy. Lose him, lose the Game. Keep out of Danger
     at all costs!
@@ -470,6 +471,7 @@ MonoBehaviour:
   globalForward: {x: 0, y: 0, z: 0}
   eulerAngles: {x: 0, y: 0, z: 0}
   attackRange: 0
+  cursor: {fileID: 0}
   boxcol: {fileID: 1367865713276962651}
 --- !u!65 &1367865713276962651
 BoxCollider:
@@ -482,8 +484,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.7866793, y: 11.250414, z: 2.0057936}
-  m_Center: {x: -0.07769346, y: 5.125207, z: 0.16390848}
+  m_Size: {x: 2.7866793, y: 11.250414, z: 2.7772658}
+  m_Center: {x: -0.07769346, y: 5.125207, z: 0.052262664}
 --- !u!114 &1521041897668555702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,6 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 20
   force: 20
+  cursor: {fileID: 0}
 --- !u!114 &5180849099748805672
 MonoBehaviour:
   m_ObjectHideFlags: 0
