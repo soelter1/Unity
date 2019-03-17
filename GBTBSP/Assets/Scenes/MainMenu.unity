@@ -754,7 +754,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Get them of the f****** Grid
+  m_Text: Get them of the f***ing Grid
 --- !u!222 &389802580
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1441,7 +1441,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Get them of the f****** Grid
+  m_Text: Get them of the f***ing Grid
 --- !u!222 &865732993
 CanvasRenderer:
   m_ObjectHideFlags: 0
